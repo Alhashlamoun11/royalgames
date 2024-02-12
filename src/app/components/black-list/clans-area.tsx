@@ -23,7 +23,7 @@ useEffect(()=>{
         };
         
         axios.request(config)
-        .then((response) => {
+        .then((response:any) => {
 
             setTotalPage(Math.ceil((response.data.length)/9))
             if(response.data.success)
@@ -32,7 +32,7 @@ useEffect(()=>{
                 errorMessage(response.data.message)
                 // console.log(JSON.stringify(response.data));
         })
-        .catch((error) => {
+        .catch((error:any) => {
             errorMessage(error.message)
 
           console.log(error);
@@ -48,7 +48,7 @@ return (
 
 <div className="container custom-container">
   <div className="row justify-content-center">
-    {clans.map((item) => (
+    {clans.map((item:any) => (
       <div key={item._id} className="col-xxl-4 col-xl-5 col-lg-6 col-md-9">
         <ClanItem item={item} />
       </div>

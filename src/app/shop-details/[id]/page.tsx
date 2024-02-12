@@ -6,9 +6,9 @@ import BreadcrumbAreaThree from "../../components/breadcrumb/breadcrumb-area-3";
 import ShopDetailsArea from "../../components/shop-details/shop-details-area";
 import product_data from "@/data/product-data";
 
-export const metadata: Metadata = {
-  title: "Shop Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Shop Details Page",
+// };
 
 export default function ShopDetailsPage({params}:{params: { id: string }}) {
   const product = product_data.find((p) => Number(p.id) === Number(params.id));

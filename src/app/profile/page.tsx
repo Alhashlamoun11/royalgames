@@ -12,9 +12,9 @@ import Swal from "sweetalert2";
 import AllInvites from "../components/invites/all-invites";
 import PlayerInfoArea from "../components/players/player-info-area";
 
-export const metadata: Metadata = {
-  title: "Team Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Team Details Page",
+// };
 
 export default function TeamDetailsPage() {
   const [user,setUser]= useState({_id:''})

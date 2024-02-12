@@ -71,7 +71,7 @@ export default function BlackListArea2(){
           const audio = new Audio(audioPath);
           audio.play();
         };
-        const handleSetType=(id)=>{
+        const handleSetType=(id:any)=>{
             console.log(type!="Player")
             console.log(type!="Clan")
             console.log(type)

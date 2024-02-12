@@ -5,9 +5,9 @@ import Footer from "@/layout/footer/footer";
 import BreadcrumbAreaTwo from "../components/breadcrumb/breadcrumb-area-2";
 import TournamentDetailsArea from "../components/tournament-details/tournament-details-area";
 
-export const metadata: Metadata = {
-  title: "Tournament Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Tournament Details Page",
+// };
 
 export default function TournamentDetailsPage() {
   return (

@@ -1,3 +1,5 @@
+'use client'
+
 import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import Header from "@/layout/header/header";
@@ -11,13 +13,13 @@ import ProjectArea from "../components/projects/project-area";
 import SocialArea from "../components/social/social-area";
 import BrandArea from "../components/brand/brand-area";
 import FooterTwo from "@/layout/footer/footer-2";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { getUserData } from "@/hooks/userData";
 import { auth } from "@/hooks/auth";
 
-export const metadata: Metadata = {
-  title: "Home Page Two",
-};
+// export const metadata: Metadata = {
+//   title: "Home Page Two",
+// };
 
 export default function HomeTwo() {
 

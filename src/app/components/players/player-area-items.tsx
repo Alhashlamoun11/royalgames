@@ -96,7 +96,7 @@ const PLayerAreaItem = ({ data }: any) => {
 
                         <section style={{ paddingTop: '50px' }} className="trendingNft-area section-pt-50 section-pb-90">
                             <div className="row justify-content-center row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1">
-                            {players&&players.map((item) => item.clan_id ? (
+                            {players&&players.map((item:any) => item.clan_id ? (
                                     <div className='col'>
                                         <PlayerCard item={item} />
                                     </div>

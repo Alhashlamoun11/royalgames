@@ -8,9 +8,9 @@ import ShopArea from "../components/shop/shop-area";
 import CLanAreaItems from "../components/clan/clan-area-items";
 
 
-export const metadata: Metadata = {
-  title: "Shop Page",
-};
+// export const metadata: Metadata = {
+//   title: "Shop Page",
+// };
 
 export default function Clans() {
   return (

@@ -17,9 +17,9 @@ import axios from "axios";
 import { getUserData } from "@/hooks/userData";
 
 
-export const metadata: Metadata = {
-    title: "Shop Details Page",
-};
+// export const metadata: Metadata = {
+//     title: "Shop Details Page",
+// };
 
 interface IFormInput {
     name: string;

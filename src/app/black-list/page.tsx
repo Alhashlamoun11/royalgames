@@ -12,7 +12,7 @@ import Image from "next/image";
 import BlackListArea2 from "../components/black-list/black-list-area";
 
 
-type INavProps = {id: string;img: StaticImageData;isActive?:boolean}
+type INavProps = {id: string;img: any;isActive?:boolean}
 function NavBtn({id,img,isActive}:INavProps) {
   // handle open search
   const handleClickSound = (audioPath: string) => {

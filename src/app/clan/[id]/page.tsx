@@ -14,9 +14,9 @@ import { useEffect, useState } from "react";
 import getClanData from "@/hooks/clanData";
 
 
-export const metadata: Metadata = {
-    title: "Shop Details Page",
-};
+// export const metadata: Metadata = {
+//     title: "Shop Details Page",
+// };
 
 interface IFormInput {
     name: string;

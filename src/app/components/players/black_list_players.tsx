@@ -67,7 +67,7 @@ const BlackListArea = () => {
           </div>
         </div>
         <div className="row justify-content-center">
-          {players.map((t, i) => (
+          {players.map((t:any, i) => (
             <div
               key={t._id}
               className="col-xl-3 col-lg-4 col-sm-6 wow fadeInUp"

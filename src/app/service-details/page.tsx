@@ -8,9 +8,9 @@ import brd_img from "@/assets/img/others/breadcrumb_img02.png";
 import ServiceDetailsArea from "../components/service-details/service-details-area";
 import FaqArea from "../components/faq/faq-area";
 
-export const metadata: Metadata = {
-  title: "Services Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Services Details Page",
+// };
 
 export default function ServiceDetailsPage() {
   return (

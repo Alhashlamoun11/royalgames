@@ -1,5 +1,5 @@
 'use client'
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
@@ -7,9 +7,9 @@ import BreadcrumbAreaThree from "../components/breadcrumb/breadcrumb-area-3";
 import PLayerAreaItem from "../components/players/player-area-items";
 
 
-export const metadata: Metadata = {
-  title: "Players",
-};
+// export const metadata: Metadata = {
+//   title: "Players",
+// };
 
 export default function Clans() {
   return (

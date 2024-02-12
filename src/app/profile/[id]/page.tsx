@@ -15,9 +15,9 @@ import Swal from "sweetalert2";
 import BreadcrumbAreaThree from "@/app/components/breadcrumb/breadcrumb-area-3";
 import PlayerInfoArea from "@/app/components/players/player-info-area";
 
-export const metadata: Metadata = {
-  title: "Team Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Team Details Page",
+// };
 
 export default function TeamDetailsPage({params}:{params: { id: string }}) {
   const [user,setUser]= useState(null)

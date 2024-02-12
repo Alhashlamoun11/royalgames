@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import match_bg from "@/assets/img/bg/match_bg.jpg";
-import Image, { StaticImageData } from "next/image";
 import match_icon from "@/assets/img/icons/match.svg";
 import SvgIconCom from "../common/svg-icon-anim";
 import team_1 from "@/assets/img/others/team_vs01.png";

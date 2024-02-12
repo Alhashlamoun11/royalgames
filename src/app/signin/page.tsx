@@ -13,9 +13,9 @@ import { getUserData } from "@/hooks/userData";
 import { auth, signin } from "@/hooks/auth";
 import Swal from "sweetalert2";
 
-export const metadata: Metadata = {
-  title: "Contact Page",
-};
+// export const metadata: Metadata = {
+//   title: "Contact Page",
+// };
 
 export default function SignIn() {
 

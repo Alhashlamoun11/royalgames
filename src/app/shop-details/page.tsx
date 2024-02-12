@@ -7,9 +7,9 @@ import ShopDetailsArea from "../components/shop-details/shop-details-area";
 import product_data from "@/data/product-data";
 
 
-export const metadata: Metadata = {
-  title: "Shop Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Shop Details Page",
+// };
 
 export default function ShopDetailsPage() {
   const product = product_data[0]

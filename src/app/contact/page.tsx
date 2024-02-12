@@ -6,9 +6,9 @@ import BreadcrumbAreaThree from "../components/breadcrumb/breadcrumb-area-3";
 import ContactArea from "../components/contact/contact-area";
 import ContactMap from "../components/contact/contact-map";
 
-export const metadata: Metadata = {
-  title: "Contact Page",
-};
+// export const metadata: Metadata = {
+//   title: "Contact Page",
+// };
 
 export default function ContactPage() {
   return (

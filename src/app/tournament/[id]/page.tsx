@@ -14,9 +14,9 @@ import GalleryArea from "@/app/components/gallery/gallery-area";
 import TextAnimation from "@/app/components/common/text-animation";
 import Pagination from "@/context/pagination";
 
-export const metadata: Metadata = {
-    title: "Tournament Page",
-};
+// export const metadata: Metadata = {
+//     title: "Tournament Page",
+// };
 
 export default function MatchDetail({ params }: { params: { id: string } }) {
 

@@ -6,9 +6,9 @@ import BreadcrumbAreaThree from "../components/breadcrumb/breadcrumb-area-3";
 import blog_data from "@/data/blog-data";
 import BlogDetailsArea from "../components/blog-details/blog-details-area";
 
-export const metadata: Metadata = {
-  title: "Blog Details Page",
-};
+// export const metadata: Metadata = {
+//   title: "Blog Details Page",
+// };
 
 export default function BlogDetailsPage() {
   const blog = blog_data[2];

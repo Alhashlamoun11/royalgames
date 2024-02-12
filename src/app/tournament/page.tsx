@@ -8,9 +8,9 @@ import brd_img from '@/assets/img/others/breadcrumb_img03.png';
 import TournamentArea from "../components/tournaments/tournament-area";
 import TournamentListArea from "../components/tournaments/tournament-list-area";
 
-export const metadata: Metadata = {
-  title: "Tournament Page",
-};
+// export const metadata: Metadata = {
+//   title: "Tournament Page",
+// };
 
 export default function TournamentPage() {
   return (
