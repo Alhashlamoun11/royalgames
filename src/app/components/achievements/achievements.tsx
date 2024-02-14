@@ -39,7 +39,6 @@ export default function Achievments({data,iconWidth,background="rgb(13 17 22)"}:
 
 
                                     </div>
-                                    <br></br><br></br>
                                     <div style={{display:"flex",flexDirection:"column",gap:"15px"}}>
                                     <li>
                                         <div className="team__info-item">

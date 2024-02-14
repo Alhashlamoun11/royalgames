@@ -12,12 +12,14 @@ import swords from '@/assets/img/includes/swords (1).png';
 import riskSkull from '@/assets/img/includes/sign.png';
 import Achievments from '../achievements/achievements';
 import PlayerAchevments from '../achievements/PlayerAchevments';
+import died from '@/assets/img/includes/die.png';
 
 
 const PlayerInfoArea = ({ user }: any) => {
     return (
         <section style={{    paddingTop: "8px",
-            height: "auto"}} className="team__info-area">
+            height: "auto",
+            minHeight:'195px'}} className="team__info-area">
             <div className="container">
                 <div className="row">
                     <div className="col-12">
@@ -25,7 +27,7 @@ const PlayerInfoArea = ({ user }: any) => {
                             <PlayerAchevments iconWidth={50} data={user}/>
 
                             <div className="team__info-list">
-                                <ul className="list-wrap">
+                                <ul style={{gap:'0'}} className="list-wrap">
                                     <li>
                                         <div className="team__info-item">
                                             <div className="team__info-icon">
@@ -58,6 +60,18 @@ const PlayerInfoArea = ({ user }: any) => {
                                                 <h5 className="title">{user.win_num}</h5>
                                             </div>
                                         </div>
+                                    </li>
+                                    <li>
+                                    <div className="team__info-item">
+                            <div className="team__info-icon">
+                                <img style={{ maxWidth: "63px" }} src={died.src} />
+                            </div>
+                            <div className="team__info-content">
+                                <span className="sub">Lost Number</span>
+                                <h5 className="title">{user.lost_num}</h5>
+                            </div>
+                        </div>
+
                                     </li>
                                 </ul>
                             </div>

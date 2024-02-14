@@ -90,7 +90,7 @@ export default function MatchDetail({ params }: { params: { id: string } }) {
                                             <table style={{
                                                     borderCollapse: 'separate',
                                                     borderSpacing: '0 15px'
-                                            }} cellSpacing={'20px'} cellPadding={"30px"} border={0} className="table table-sm list-wrap">
+                                            }} cellSpacing={'20px'} cellPadding={"30px"} border={0} className="table table-sm list-wrap tournment_clan_table">
                                                 <thead>
                                                     <tr className="clan_item_tournmentt">
                                                         <td style={{border:'none'}}>Clan Name</td>
