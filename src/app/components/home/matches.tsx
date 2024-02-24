@@ -100,7 +100,7 @@ function UpcomingMatchItem({
   );
 }
 
-const UpcomingMatches = ({challenges,id}:any) => {
+const MatchSection = ({challenges,id}:any) => {
   const [currentPageChallenges, setcurrentPageChallenges] = useState(1);
   const [ totalPageChallenges, settotalPageChallenges ] = useState(1);
   const [ challengesData, setChallengesData ] = useState([]);
@@ -110,7 +110,7 @@ const UpcomingMatches = ({challenges,id}:any) => {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `${process.env.BACKEND_URL}/get_clan_challenges/${id}?pagechallenges=${currentPageChallenges}`,
+      url: `${process.env.BACKEND_URL}/get_challenges?pagechallenges=${currentPageChallenges}`,
       headers: {}
     };
 
@@ -133,10 +133,7 @@ const UpcomingMatches = ({challenges,id}:any) => {
 
   }
   useEffect(()=>{
-    if(typeof id!="undefined")
         getChallenges()
-    else
-    setChallengesData(challenges)
   },[currentPageChallenges])
 
   console.log(challenges)
@@ -158,7 +155,7 @@ const UpcomingMatches = ({challenges,id}:any) => {
         <div className="row">
           <div className="col-12">
             <div className="upcoming-match__lists">
-              {challengesData.map((item:any)=>(
+              {challengesData.length>0?challengesData.map((item:any)=>(
               <UpcomingMatchItem
               id1={item.team_1._id}
               id2={item.team_2._id}
@@ -175,7 +172,7 @@ const UpcomingMatches = ({challenges,id}:any) => {
               delay=".2"
             />
 
-              ))}
+              )):<center><h1>No Data Found</h1></center>}
             </div>
           </div>
         </div>
@@ -189,4 +186,4 @@ const UpcomingMatches = ({challenges,id}:any) => {
   );
 };
 
-export default UpcomingMatches;
+export default MatchSection;

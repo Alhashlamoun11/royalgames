@@ -34,12 +34,12 @@ const FooterTwo = () => {
                 <div className="row">
                     <div className="col-6">
                         <div className="footer__country-name">
-                            <h2 className="text">Dubai</h2>
+                            <h2 className="text">.</h2>
                         </div>
                     </div>
                     <div className="col-6">
                         <div className="footer__country-name text-center text-sm-end">
-                            <h2 className="text">France</h2>
+                            <h2 className="text">.</h2>
                         </div>
                     </div>
                 </div>
@@ -78,9 +78,9 @@ const FooterTwo = () => {
                         <div className="footer-el-widget text-start text-md-end">
                             <h4 className="title">head office</h4>
                             <ul className="list-wrap">
-                                <li><Link href="tel:123">+33 423 222 555</Link></li>
-                                <li><Link href="mailto:info@exemple.com">info@exemple.com</Link></li>
-                                <li>New Central Park W7 Street Lan <br/> France</li>
+                            <li><Link href="/players">Players</Link></li>
+                                    <li><Link href="/clans">Clans</Link></li>
+                                    <li><Link href="/tournament">Streamers</Link></li>
                             </ul>
                         </div>
                     </div>

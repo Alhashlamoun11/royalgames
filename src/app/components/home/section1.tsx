@@ -11,7 +11,7 @@ import trophy from '@/assets/img/icons/trophy.png';
 import VideoPopup from '../common/video-popup';
 import CounterUp from "../common/counter-up";
 
-const AboutAreaTwo = () => {
+const Section1 = ({main,playersnum,clansnum}:any) => {
    const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
    const imgStyle = { height: 'auto', width: 'auto' };
    return (
@@ -30,12 +30,10 @@ const AboutAreaTwo = () => {
                         <h3 style={{textAlign:'right'}} className="title">من  نحن</h3>
                      </div>
                      <div dir="rtl" className="about__content-two">
-                        <p>رويال جيمز جهة تنظيمية مختصة في تنظيم البطولات في مجال الرياضات الإلكترونية
-بشتى أنواعها.
-اختصت رويال جيمز مجال تنظيم البطولات من عام 2010 وقامت بتنظيم العديد من البطولات</p>
+                        <p>{main.main_text}</p>
                      </div>
                      <div className="about__content-bottom">
-                        <div className="about__content-circle">
+                        {/* <div className="about__content-circle">
                            <Image src={circel} alt="img" style={imgStyle} />
                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" version="1.1">
                               <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
@@ -43,26 +41,32 @@ const AboutAreaTwo = () => {
                                  <textPath href="#textPath">Royal Games Clup</textPath>
                               </text>
                            </svg>
-                        </div>
+                        </div> */}
                         <div className="about__funFact-wrap">
                            <div className="about__funFact-lists">
                               <div className="about__funFact-item">
                                  <h2 className="count">
-                                    <CounterUp number={40} text="K" />
+                                    <CounterUp number={playersnum} text="" />
                                  </h2>
-                                 <p>Member</p>
+                                 <p>Players</p>
                               </div>
                               <div className="about__funFact-item">
                                  <h2 className="count">
-                                    <CounterUp number={12} text="K" />
+                                    <CounterUp number={clansnum} text="" />
                                  </h2>
                                  <p>Clans</p>
                               </div>
                               <div className="about__funFact-item">
                                  <h2 className="count">
-                                    <CounterUp number={30} text="K" />
+                                    <CounterUp number={main.chalenges_num} text="" />
                                  </h2>
                                  <p>Challenges</p>
+                              </div>
+                              <div className="about__funFact-item">
+                                 <h2 className="count">
+                                    <CounterUp number={main.tornament_num} text="" />
+                                 </h2>
+                                 <p>Tornaments</p>
                               </div>
                            </div>
                            {/* <div className="about__content-btns">
@@ -82,14 +86,14 @@ const AboutAreaTwo = () => {
          </section>
 
          {/* video modal start */}
-         <VideoPopup
+         {/* <VideoPopup
             isVideoOpen={isVideoOpen}
             setIsVideoOpen={setIsVideoOpen}
             videoId={"ssrNcwxALS4"}
-         />
+         /> */}
          {/* video modal end */}
       </>
    );
 };
 
-export default AboutAreaTwo;
+export default Section1;

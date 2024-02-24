@@ -1,38 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import ShopSidebar from '../shop/shop-sidebar';
-import product_data from '@/data/product-data';
-import ShopItem from '../shop/shop-item';
-import ClanCard from '../cards/clan-card';
 import axios from 'axios';
-import ClanSideBar from './clan-side-bar';
+import PlayerSideBar from '../players/players-side-bar';
+import PlayerCard from '../players/player-card';
 import Pagination from '@/context/pagination';
+import StreamersSideBar from './StreamersSideBar';
 
-const CLanAreaItems = ({ data }: any) => {
-    const [clans, setClans] = useState([])
-    const [topClans,setTopClans]=useState([])
+
+const StreamersAreaItem = ({ data }: any) => {
+    const [players, setPlayers] = useState([])
+    const [topplayers,setTopPlayers]=useState([])
     const [from, setFrom] = useState(0)
     const [to, setTo] = useState(0)
     const [currentPage, setCurrentPage] = useState(1);
     const [ totalPage, setTotalPage ] = useState(1);
 
-    const getAllClans = () => {
-        const axios = require('axios');
-
+    const getAllStreamers = () => {
         let config = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `${process.env.BACKEND_URL}/getAllClans/?page=${currentPage}`,
+            url: `${process.env.BACKEND_URL}/getStreamers?page=${currentPage}`,
             headers: {}
         };
 
         axios.request(config)
             .then((response: any) => {
                 if (response.data.success) {
-                    setClans(response.data.data)
-                    setTotalPage(Math.ceil(response.data.length/9))
-                    currentPage==1?setTopClans(response.data.data.slice(0,3)):null
-                console.log(clans)
+                    setPlayers(response.data.data)
+                    setTotalPage(Math.ceil(response.data.data.length/9))
+                    setTopPlayers(response.data.data.slice(0,3))
+                console.log(players)
         
                 }
                 console.log(JSON.stringify(response.data));
@@ -43,17 +40,15 @@ const CLanAreaItems = ({ data }: any) => {
 
     }
 
-    const handleSearchClans = (e: any, win_num?: any) => {
-        let url = `${process.env.BACKEND_URL}/search_clans/`
-
+    const handleSearchPlayers = (e: any, win_num?: any) => {
+        let url = `${process.env.BACKEND_URL}/getStreamers/`
         if (e == '' && win_num[0] == 0, win_num == 380)
-            getAllClans()
+        // getAllStreamers()
 
         if (e != '') {
             url += `${e}/${win_num[0]}/${win_num[1]}`
         }else{
             url += `${win_num[0]}/${win_num[1]}`
-
         }
         let config = {
             method: 'get',
@@ -64,8 +59,8 @@ const CLanAreaItems = ({ data }: any) => {
 
         axios.request(config)
             .then((response: any) => {
-                console.log(JSON.stringify(response.data));
-                setClans(response.data.data)
+                // console.log(JSON.stringify(response.data));
+                // setPlayers(response.data.data)
             })
             .catch((error: any) => {
                 console.log(error);
@@ -74,8 +69,7 @@ const CLanAreaItems = ({ data }: any) => {
     }
 
     useEffect(() => {
-        getAllClans()
-
+        getAllStreamers()
     }, [currentPage])
 
     return (
@@ -84,7 +78,7 @@ const CLanAreaItems = ({ data }: any) => {
                 <div className="row justify-content-center">
                     <div className="col-xl-3 col-lg-4 col-md-11 order-2 order-lg-0">
                         {/* sidebar start */}
-                        <ClanSideBar topClans={topClans} serachFunction={handleSearchClans} />
+                        <StreamersSideBar topplayers={topplayers} serachFunction={handleSearchPlayers} />
                         {/* sidebar end */}
                     </div>
                     <div className="col-xl-9 col-lg-8 col-md-11">
@@ -92,7 +86,7 @@ const CLanAreaItems = ({ data }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-lg-8 col-sm-6">
                                     <div className="shop__showing-result">
-                                        <p>Showing {from} - {to} of {clans.length} results</p>
+                                        <p>Showing {from} - {to} of {players&&players.length} results</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,9 +94,19 @@ const CLanAreaItems = ({ data }: any) => {
 
                         <section style={{ paddingTop: '50px' }} className="trendingNft-area section-pt-50 section-pb-90">
                             <div className="row justify-content-center row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1">
-                                {clans.map((item) => item.owner_id ? (
+                            {players&&players.map((item:any) => item.user_id ? (
                                     <div className='col'>
-                                        <ClanCard item={item} />
+                <div className="streamers__item">
+                    <div className="streamers__thumb">
+                        <Link href={`/profile/${item.user_id._id}`}>
+                          <img src={item.user_id.avatare} alt="img" style={{height:'auto',width:'100%'}} />
+                        </Link>
+                    </div>
+                    <div style={{bottom:"5px"}} className="streamers__content">
+                    <h4 className="name">{item.user_id.global_name}</h4>
+                    <span className="name">{item.job}</span>
+                    </div>
+                </div>
                                     </div>
                                 ) : null)}
                             </div>
@@ -133,4 +137,4 @@ const CLanAreaItems = ({ data }: any) => {
     );
 };
 
-export default CLanAreaItems;
+export default StreamersAreaItem;

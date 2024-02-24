@@ -28,6 +28,127 @@ const team_data = [
     title:'Shakh Danial',
     subtitle:'Crypto Advisor'
   },
+  {
+    id:1,
+    img:img_1,
+    title:'killer master',
+    subtitle:'Blockchain Expert'
+  },
+  {
+    id:2,
+    img:img_2,
+    title:'tanu mark',
+    subtitle:'Developer'
+  },
+  {
+    id:3,
+    img:img_3,
+    title:'Thompson Scot',
+    subtitle:'Art Director'
+  },
+  {
+    id:4,
+    img:img_4,
+    title:'Shakh Danial',
+    subtitle:'Crypto Advisor'
+  },
+  {
+    id:1,
+    img:img_1,
+    title:'killer master',
+    subtitle:'Blockchain Expert'
+  },
+  {
+    id:2,
+    img:img_2,
+    title:'tanu mark',
+    subtitle:'Developer'
+  },
+  {
+    id:3,
+    img:img_3,
+    title:'Thompson Scot',
+    subtitle:'Art Director'
+  },
+  {
+    id:4,
+    img:img_4,
+    title:'Shakh Danial',
+    subtitle:'Crypto Advisor'
+  },
+  {
+    id:1,
+    img:img_1,
+    title:'killer master',
+    subtitle:'Blockchain Expert'
+  },
+  {
+    id:2,
+    img:img_2,
+    title:'tanu mark',
+    subtitle:'Developer'
+  },
+  {
+    id:3,
+    img:img_3,
+    title:'Thompson Scot',
+    subtitle:'Art Director'
+  },
+  {
+    id:4,
+    img:img_4,
+    title:'Shakh Danial',
+    subtitle:'Crypto Advisor'
+  },
+  {
+    id:1,
+    img:img_1,
+    title:'killer master',
+    subtitle:'Blockchain Expert'
+  },
+  {
+    id:2,
+    img:img_2,
+    title:'tanu mark',
+    subtitle:'Developer'
+  },
+  {
+    id:3,
+    img:img_3,
+    title:'Thompson Scot',
+    subtitle:'Art Director'
+  },
+  {
+    id:4,
+    img:img_4,
+    title:'Shakh Danial',
+    subtitle:'Crypto Advisor'
+  },
+  {
+    id:1,
+    img:img_1,
+    title:'killer master',
+    subtitle:'Blockchain Expert'
+  },
+  {
+    id:2,
+    img:img_2,
+    title:'tanu mark',
+    subtitle:'Developer'
+  },
+  {
+    id:3,
+    img:img_3,
+    title:'Thompson Scot',
+    subtitle:'Art Director'
+  },
+  {
+    id:4,
+    img:img_4,
+    title:'Shakh Danial',
+    subtitle:'Crypto Advisor'
+  },
+  
 ]
 
 export default team_data;

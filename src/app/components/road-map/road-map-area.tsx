@@ -22,36 +22,36 @@ const road_map_lists: IRoadMap[] = [
   {
     id: 1,
     active: true,
-    title: "season 1",
+    title: "مميزات البرنامج",
     lists: [
-      { active: true, text: "Battle Practice Mode" },
-      { active: true, text: "iOS Open Beta" },
-      { active: true, text: "Land Creation & Building" },
-      { active: true, text: "Land Creation & Building" },
+      { active: true, text: "كشف جميع انواع الهاكات في الوقت الفعلي" },
+      { active: true, text: "منع اي محاولات اختراق او تلاعب" },
+      { active: true, text: "تشفير كامل لجميع البيانات" },
+      { active: true, text: "تحديثات مستمرة لمواكبة احدث تقنيات الغش" },
     ],
   },
   {
     id: 2,
     active: false,
-    title: "season 2",
+    title: "",
     lists: [
-      { active: true, text: "Battle Practice Mode" },
-      { active: true, text: "iOS Open Beta" },
-      { active: false, text: "Land Creation & Building" },
-      { active: false, text: "Land Creation & Building" },
+      { active: true, text: "واجهة سهلة الاستخدام" },
+      { active: true, text: "رفع تلقائي للملف على سيرفراتنا" },
+      { active: true, text: "ذكاء اصطناعي يسهل عملية فحص الملف" },
+      { active: true, text: "تسجيل الدخول عن طريق الديسكورد" },
     ],
   },
-  {
-    id: 3,
-    active: false,
-    title: "season 3",
-    lists: [
-      { active: false, text: "Battle Practice Mode" },
-      { active: false, text: "iOS Open Beta" },
-      { active: false, text: "Land Creation & Building" },
-      { active: false, text: "Land Creation & Building" },
-    ],
-  },
+  // {
+  //   id: 3,
+  //   active: false,
+  //   title: "season 3",
+  //   lists: [
+  //     { active: false, text: "Battle Practice Mode" },
+  //     { active: false, text: "iOS Open Beta" },
+  //     { active: false, text: "Land Creation & Building" },
+  //     { active: false, text: "Land Creation & Building" },
+  //   ],
+  // },
 ];
 
 const RoadMapArea = () => {
@@ -77,14 +77,12 @@ const RoadMapArea = () => {
               <div className="row">
                 <div className="col-xl-5 col-lg-6">
                   <div className="roadMap__content">
-                    <h2 className="title">a look into roadmaps seasons</h2>
+                    <h2 className="title">RGAC</h2>
                     <p>
-                      With Season 1 Ending with our play and Duis elementum
-                      sollicitudin is yaugue euismods Nulla ulla Player-focused
-                      updates games from Mobile App and Enjoy.
+                      البرنامج مخصص لحماية اللاعبين من الغشاشين وضمان بيئة لعب عادلة وممتعة للجميع
                     </p>
                     <Link href="/contact" className="tg-btn-1 -btn-yellow">
-                      <span>roadmap</span>
+                      <span>تحميل</span>
                     </Link>
                   </div>
                   <div className="roadMap__img">

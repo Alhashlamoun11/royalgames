@@ -66,8 +66,14 @@ const menu_data:IMenuDataType[] = [
   
   {
     id:7,
-    title:'CONTACT',
-    link:'/contact',
+    title:'Other',
+    link:'#',
+    sub_menu:[
+      {title:'Streamers',link:'/streamers'},
+      {title:'Our App',link:'/application'},
+      {title:'Tutorials',link:'/tutorials'}
+    ]
+
   },
 ]
 

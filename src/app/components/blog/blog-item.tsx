@@ -7,12 +7,12 @@ const BlogItem = ({blog}:{blog:IBlog}) => {
   return (
     <div className="blog-post-item">
       <div className="blog-post-thumb">
-        <Link href={`/blog-details/${blog.id}`}>
-          <Image src={blog.img} alt="img" style={{width:'100%',height:'auto'}} />
-        </Link>
+      <iframe height="400px" width="100%"
+            src="https://www.youtube.com/embed/il_t1WVLNxk">
+      </iframe>
       </div>
       <div className="blog-post-content">
-        <div className="blog-post-meta">
+        {/* <div className="blog-post-meta">
           <ul className="list-wrap">
             <li>
               By<Link href={`/blog-details/${blog.id}`}>{blog.author}</Link>
@@ -25,20 +25,20 @@ const BlogItem = ({blog}:{blog:IBlog}) => {
               <Link href={`/blog-details/${blog.id}`}>{blog.comments === 0 ? 'No comments' : `${blog.comments} comments`}</Link>
             </li>
           </ul>
-        </div>
+        </div> */}
         <h2 className="title">
-          <Link href={`/blog-details/${blog.id}`}>{blog.title}</Link>
+          <Link href={`/blog-details/${blog._id}`}>{blog.title}</Link>
         </h2>
         <p>
-          {blog.desc}
+          {blog.text}
         </p>
         <div className="blog-post-bottom">
-          <div className="blog-post-read">
-            <Link href={`/blog-details/${blog.id}`}>
-              READ MORE <i className="fas fa-arrow-right"></i>
+          {blog.type==1?(<div className="blog-post-read">
+            <Link href={blog.video_url}>
+              {blog.button_text} <i className="fas fa-arrow-right"></i>
             </Link>
-          </div>
-          <div className="blog-post-share">
+          </div>):null}
+          {/* <div className="blog-post-share">
             <h5 className="share">share :</h5>
             <ul className="list-wrap">
               <li>
@@ -57,7 +57,7 @@ const BlogItem = ({blog}:{blog:IBlog}) => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

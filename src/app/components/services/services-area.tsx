@@ -18,26 +18,26 @@ const service_items:{
   {
     id:1,
     icon:'flaticon-diamond',
-    title:'Year Experience',
-    desc:'Lorem ipsum dolor sitamet const adipiscng Duis eletum sollicitudin is yaugue euismods'
+    title:'Experiance',
+    desc:'تطوير مجال الرياضات الالكترونية من الناحية التنظيمية وتسهيل البيئة التنافسية بين اللاعبين'
   },
   {
     id:2,
     icon:'flaticon-user-profile',
     title:'Expert Teams',
-    desc:'Lorem ipsum dolor sitamet const adipiscng Duis eletum sollicitudin is yaugue euismods'
+    desc:'رفع مستوى اللاعب العربي واعداده للمنافسة عالميا'
   },
   {
     id:3,
     icon:'flaticon-ethereum',
-    title:'Best NFT Game',
-    desc:'Lorem ipsum dolor sitamet const adipiscng Duis eletum sollicitudin is yaugue euismods'
+    title:'Vision',
+    desc:'ان نكون الجهة الاولى في مجال تنظيم البطولات والرياضات الالكترونية في الشرق الاوسط'
   },
   {
     id:4,
     icon:'flaticon-settings-1',
     title:'Worldwide Client',
-    desc:'Lorem ipsum dolor sitamet const adipiscng Duis eletum sollicitudin is yaugue euismods'
+    desc:'تكوين اكبر مجتمع لاعبين في الشرق الاوسط'
   }
 ];
 

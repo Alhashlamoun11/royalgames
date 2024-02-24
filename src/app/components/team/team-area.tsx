@@ -1,11 +1,53 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import team_data from "@/data/team-data";
 import bg from '@/assets/img/bg/team_bg.jpg';
 import TextAnimation from "../common/text-animation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Scrollbar } from "swiper/modules";
+import { Pagination } from "reactstrap";
 
 const TeamArea = () => {
+  const slider_setting = {
+    observer: true,
+    observeParents: true,
+    loop: false,
+    slidesPerView: 5,
+    spaceBetween: 20,
+    breakpoints: {
+      '1500': {
+          slidesPerView: 5,
+      },
+      '1200': {
+          slidesPerView: 4,
+      },
+      '992': {
+          slidesPerView: 4,
+      },
+      '768': {
+          slidesPerView: 3,
+      },
+      '576': {
+          slidesPerView: 2,
+      },
+      '0': {
+          slidesPerView: 1.5,
+          centeredSlides: true,
+          centeredSlidesBounds: true,
+      },
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".slider-button-next",
+      prevEl: ".slider-button-prev",
+    }
+  };
+    
   return (
     <section
       className="team__area team-bg section-pt-130 section-pb-100"
@@ -20,11 +62,11 @@ const TeamArea = () => {
             </div>
           </div>
         </div>
-        <div className="row justify-content-center">
+        <Swiper {...slider_setting} modules={[Navigation,Pagination]} className="swiper-container streamers-active">
+          
           {team_data.map((t, i) => (
+                  <SwiperSlide key={t._id}>
             <div
-              key={t.id}
-              className="col-xl-3 col-lg-4 col-sm-6 wow fadeInUp"
               data-wow-delay={`.${i + 1}s`}
             >
               <div className="team__item">
@@ -41,8 +83,10 @@ const TeamArea = () => {
                 </div>
               </div>
             </div>
+            </SwiperSlide>
           ))}
-        </div>
+
+        </Swiper>
       </div>
     </section>
   );

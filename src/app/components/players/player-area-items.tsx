@@ -28,7 +28,7 @@ const PLayerAreaItem = ({ data }: any) => {
                 if (response.data.success) {
                     setPlayers(response.data.data)
                     setTotalPage(Math.ceil(response.data.data.length/9))
-                    setTopPlayers(response.data.data.slice(0,3))
+                    currentPage==1?setTopPlayers(response.data.data.slice(0,3)):null
                 console.log(players)
         
                 }

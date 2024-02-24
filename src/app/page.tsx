@@ -1,91 +1,144 @@
 'use client'
+
+import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import Header from "@/layout/header/header";
-import HeroBanner from "./components/hero-banner/hero-banner";
-import NftItemArea from "./components/nft-item/nft-item-area";
-import AboutArea from "./components/about-area/about-area";
-import GalleryArea from "./components/gallery/gallery-area";
-import TeamArea from "./components/team/team-area";
-import area_bg from "@/assets/img/bg/area_bg01.jpg";
-import VideoArea from "./components/video/video-area";
-import RoadMapArea from "./components/road-map/road-map-area";
-import TrendingNftItems from "./components/nft-item/trending-nft-items";
-import Footer from "@/layout/footer/footer";
-import { useEffect, useState } from "react";
+import HeroBannerTwo from "./components/hero-banner/hero-banner-2";
+import area_bg from '@/assets/img/bg/area_bg02.jpg';
+import AboutAreaTwo from "./components/about-area/about-area-2";
+import UpcomingMatches from "./components/upcoming-match/upcoming-matches";
+import ProjectArea from "./components/projects/project-area";
+import SocialArea from "./components/social/social-area";
+import BrandArea from "./components/brand/brand-area";
+import FooterTwo from "@/layout/footer/footer-2";
+// import { useEffect, useState } from "react";
 import { getUserData } from "@/hooks/userData";
-import { auth, signin } from "@/hooks/auth";
+import { auth } from "@/hooks/auth";
+import MatchSection from "./components/home/matches";
+import HomeRules from "./components/home/rules";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Section1 from "./components/home/section1";
+import TeamArea from "./components/team/team-area";
 
-export default function Home() {
-  const [user,setUser]=useState();
-  const queryString = window.location.search;
-  
-  // Create a URLSearchParams object from the query string
-  const params = new URLSearchParams(queryString);
-  const param1 = params.get('_id'); 
+// export const metadata: Metadata = {
+//   title: "Home Page Two",
+// };
+
+export default function HomeTwo() {
+
+  const [data,setData]=useState(null);
+  const [brands,setBrands]=useState(null);
+  const [video,setVideo]=useState(null);
+
   useEffect(()=>{
-    console.log(param1)
+    const getMain = () => {
 
-    if(param1!=null ){
-      signin(param1)
+      let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: `${process.env.BACKEND_URL}/getMain`,
+          headers: {}
+      };
 
-      getUserData(user,setUser,param1)
-console.log(param1)
-    }else{
-    }
-  },[])
+      axios.request(config)
+          .then((response: any) => {
+            setData(response.data)
+            console.log(JSON.stringify(response.data));
+          })
+          .catch((error: any) => {
+              console.log(error);
+          });
 
-  return (
+  }
+
+  const getBrands = () => {
+
+    let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${process.env.BACKEND_URL}/getBrands`,
+        headers: {}
+    };
+
+    axios.request(config)
+        .then((response: any) => {
+          setBrands(response.data)
+          console.log(JSON.stringify(response.data));
+        })
+        .catch((error: any) => {
+            console.log(error);
+        });
+
+}
+
+const getVideos = () => {
+
+  let config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: `${process.env.BACKEND_URL}/getVideos`,
+      headers: {}
+  };
+
+  axios.request(config)
+      .then((response: any) => {
+        setVideo(response.data.data)
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error: any) => {
+          console.log(error);
+      });
+
+}
+
+getMain();
+  getVideos()
+  getBrands();
+},[])
+  return data!=null?(
     <Wrapper>
-      {/* header start */}
-      <Header />
-      {/* header end */}
 
-      {/* main area start */}
+      <Header style_2={true} />
+
       <main className="main--area">
-        {/* hero banner start */}
-        <HeroBanner />
-        {/* hero banner end */}
 
-        {/* nft item area start */}
-        <NftItemArea />
-        {/* nft item area end */}
+        <HeroBannerTwo  title={data.data.title} supTitle={data.data.sup_title}/>
 
-        {/* area-background-start */}
-        <div
-          className="area-background"
-          style={{ backgroundImage: `url(${area_bg.src})` }}
-        >
-          {/* about-area */}
-          <AboutArea />
-          {/* about-area-end */}
+        <div className="area-background" style={{backgroundImage:`url(${area_bg.src})`}}>
 
-          {/* gallery area start */}
-          <GalleryArea />
-          {/* gallery area end */}
+        <Section1 main={data.data} playersnum={data.playersnum} clansnum={data.clansnum} />
+
         </div>
-        {/* area-background-end */}
 
-        {/* team area start */}
-        <TeamArea />
-        {/* team area end*/}
+        <MatchSection/>
+        <br></br>
 
-        {/* video area start */}
-        <VideoArea />
-        {/* video area end */}
+        <HomeRules video={video}/>
+        {data.owner_visable?<BrandArea data={brands}/>:null}
+        
 
-        {/* road map area start */}
-        <RoadMapArea />
-        {/* road map area end */}
-
-        {/* trending nft items start */}
-        <TrendingNftItems />
-        {/* trending nft items end */}
       </main>
-      {/* main area end */}
 
-      {/* footer start */}
-      <Footer/>
-      {/* footer end */}
+
+      <FooterTwo/>
+
     </Wrapper>
-  );
+  ):(
+        <Wrapper>
+
+    <Header style_2={true} />
+
+    <main className="main--area">
+
+      <HeroBannerTwo  title="Loading..." supTitle=""/>
+
+      <div className="area-background" style={{backgroundImage:`url(${area_bg.src})`}}>
+</div>
+</main>
+<FooterTwo/>
+
+</Wrapper>
+)
+
 }

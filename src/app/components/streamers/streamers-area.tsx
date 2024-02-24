@@ -102,7 +102,7 @@ const StreamersArea = () => {
             <div className="col-xl-6 col-lg-7 col-md-10">
                 <div className="section__title text-center mb-60">
                     <TextAnimation title="Our top streamers" />
-                    <h3 className="title">top rated streamers</h3>
+                    <h3 className="title">Clup Managers</h3>
                 </div>
             </div>
         </div>

@@ -56,8 +56,8 @@ const slider_setting = {
 };
 
 // brands
-const brands = [brand_1,brand_2,brand_3,brand_4,brand_5,brand_6,brand_7,brand_2,brand_5]
-const BrandArea = () => {
+// const brands = [brand_1,brand_2,brand_3,brand_4,brand_5,brand_6,brand_7,brand_2,brand_5]
+const BrandArea = ( brands:any) => {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <section className="brand-area">
@@ -65,16 +65,16 @@ const BrandArea = () => {
         <div className="row">
             <div className="col-12">
                 <div className="brand__title text-center">
-                    <h2 className="title">they trust us</h2>
+                    <h2 className="title">Suponsers</h2>
                 </div>
             </div>
         </div>
         <Slider {...slider_setting} className="row brand-active">
-          {brands.map((b,i) => (
+          {brands.map((b:any,i:any) => (
             <div key={i} className="col">
                 <div className="brand__item" onMouseEnter={() => setHoveredIndex(i)} onMouseLeave={() => setHoveredIndex(null)} style={{ opacity: hoveredIndex === null || hoveredIndex === i ? 1 : 0.3, transition: 'opacity 0.3s'}}>
                     <Link href="#" className="brand__link">
-                      <Image src={b} alt="brand" style={{width:'auto',height:'auto'}} />
+                      <img src={b.image} alt="brand" style={{width:'auto',height:'auto'}} />
                     </Link>
                 </div>
             </div>

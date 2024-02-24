@@ -25,7 +25,7 @@ let config = {
 axios.request(config)
 .then((response:any) => {
   setMatches(response.data.data);
-  setTotalPage(Math.ceil(response.data.data.length/9))
+  setTotalPage(Math.ceil(response.data.length/9))
 })
 .catch((error:any) => {
   console.log(error);
@@ -47,7 +47,7 @@ axios.request(config)
                 </div>
             </div>
             <div className="row justify-content-center gutter-25">
-              {matches!=null&&matches.map((item) => (
+              {matches!=null&&matches.map((item:any) => (
                 <div key={item.id} className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                   <Link itemProp={item} href={`/tournament/${item.match._id}`} >
                     <TournamentBox item={item} />

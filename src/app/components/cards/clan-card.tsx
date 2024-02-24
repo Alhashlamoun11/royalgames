@@ -38,7 +38,8 @@ overflow: 'hidden'
         <div className="trendingNft__item-price">
             <span style={{textOverflow: "ellipsis",
 whiteSpace: 'nowrap',
-overflow: 'hidden'
+overflow: 'hidden',
+maxWidth:'200px'
 }} className="bid">{item.short_name}</span>
             <h6 style={{wordBreak:'break-all'}} className="eth"><i className="fab fa-ethereum"></i><span>{item.name}</span></h6>
         </div>

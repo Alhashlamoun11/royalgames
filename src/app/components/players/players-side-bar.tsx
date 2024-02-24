@@ -51,9 +51,9 @@ const PlayerSideBar = ({topplayers,serachFunction,filterByWiningFunction}:any) =
         </div>
     </div>
     <div className="shop__widget">
-        <h4 className="shop__widget-title">Top Clans</h4>
+        <h4 className="shop__widget-title">Top Players</h4>
         <div className="shop__widget-inner">
-            {topplayers.map((item) => (
+            {topplayers.map((item:any) => (
             <div key={item._id} className="related__products-item">
                 <div className="related__products-thumb">
                     <Link href={`/shop-details/${item._id}`}>
