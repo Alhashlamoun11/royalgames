@@ -53,6 +53,12 @@ const HomeRules = (video:any) => {
   return (
     <>
     <section className="gallery__area fix section-pb-130">
+      <br></br>
+    <center><h1 className="title wow bounceInLeft" data-wow-delay=".2s">
+      الشروحات
+      </h1></center>
+      
+      <br></br>
       <div className="gallery__slider">
         <div className="container">
           <div className="row justify-content-center">

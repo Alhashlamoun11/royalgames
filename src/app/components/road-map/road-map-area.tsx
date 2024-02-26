@@ -7,6 +7,9 @@ import bg from "@/assets/img/bg/roadmap_bg.jpg";
 import road_map from "@/assets/img/others/roadmap.png";
 import road_map_step from "@/assets/img/others/roadmap_img.png";
 import useTextAnimation from "@/hooks/use-text-animation";
+import SvgIconCom from "../common/svg-icon-anim";
+import shape from '@/assets/img/icons/shape.svg';
+import VideoPopup from "../common/video-popup";
 
 // road map lists
 type IRoadMap = {
@@ -64,8 +67,10 @@ const RoadMapArea = () => {
     }
   };
 
+  const [isVideoOpen, setIsVideoOpen] = useState<boolean>(false);
 
   return (
+    <>
     <section
       className="roadMap__area roadMap-bg section-pt-150 section-pb-150"
       style={{ backgroundImage: `url(${bg.src})` }}
@@ -81,9 +86,20 @@ const RoadMapArea = () => {
                     <p>
                       البرنامج مخصص لحماية اللاعبين من الغشاشين وضمان بيئة لعب عادلة وممتعة للجميع
                     </p>
-                    <Link href="/contact" className="tg-btn-1 -btn-yellow">
+                                               <div className="about__content-btns">
+                              {/* <Link href="/contact" className="tg-btn-3 tg-svg">
+                                 <SvgIconCom icon={shape} id="svg-6" />
+                                 <span>read more</span>
+                              </Link> */}
+                                                  <Link href="/contact" className="tg-btn-1 -btn-yellow">
                       <span>تحميل</span>
                     </Link>
+
+                              <a className="popup-video cursor-pointer"
+                                 onClick={() => setIsVideoOpen(true)}><i className="fas fa-play">
+                              </i><span className="text">How It Work</span></a>
+                           </div>
+
                   </div>
                   <div className="roadMap__img">
                     <Image
@@ -122,6 +138,7 @@ const RoadMapArea = () => {
                         />
                       </div>
                     ))}
+                    
                   </div>
                 </div>
               </div>
@@ -130,6 +147,12 @@ const RoadMapArea = () => {
         </div>
       </div>
     </section>
+             <VideoPopup
+             isVideoOpen={isVideoOpen}
+             setIsVideoOpen={setIsVideoOpen}
+             videoId={"ssrNcwxALS4"}
+          />
+</> 
   );
 };
 
