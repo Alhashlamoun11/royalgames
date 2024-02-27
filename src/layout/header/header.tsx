@@ -25,7 +25,7 @@ const Header = ({style_2=false}:{style_2?:boolean}) => {
   }, []);
   console.log(user)
   const clientId = "1202268878965571604";
-  const redirectUri = "http://localhost:3000/api/auth/callback";
+  const redirectUri = "https://abdallahfront-production.up.railway.app/api/auth/callback";
   const handleDiscordSignIn = () => {
     window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify`;
   };
