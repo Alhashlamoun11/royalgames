@@ -3,7 +3,7 @@ import blog_2 from '@/assets/img/blog/blog_post02.jpg';
 import blog_3 from '@/assets/img/blog/blog_post03.jpg';
 import { IBlog } from '@/types/blog-type';
 
-const blog_data:IBlog[] = [
+const blog_data:any[] = [
   {
     id:1,
     img:blog_1,

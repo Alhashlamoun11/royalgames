@@ -1,17 +1,12 @@
 'use client'
-import { Metadata } from "next";
 import Wrapper from "@/layout/wrapper";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import BreadcrumbAreaThree from "@/app/components/breadcrumb/breadcrumb-area-3";
 import product_data from "@/data/product-data";
 import TeamDetails from "@/app/components/team/team_details_c";
-import ErrorMsg from "@/app/components/common/err-message";
-import { useForm } from "react-hook-form";
-import Link from "next/link";
 import { File } from "buffer";
 import { useEffect, useState } from "react";
-import getClanData from "@/hooks/clanData";
 import axios from "axios";
 
 
@@ -89,3 +84,4 @@ export default function Clan({params}:{params: { id: string }}) {
             {/* footer end */}
         </Wrapper>
     )}
+    

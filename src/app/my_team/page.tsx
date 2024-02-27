@@ -34,12 +34,16 @@ export default function MyTeam() {
     const [players,setPlayers]=useState({});
     const [challenges,setChallenges]=useState({});
     const [status,setStatus]=useState(0);
-
-    const user = JSON.parse(window.localStorage.getItem('user')!);
+    const [user,setUser]=useState(Object);
+  
     if (user == null) {
-        window.location.href = '/'
+      if (typeof window !== 'undefined') {
+        // Access localStorage here
+        window.location.href='/'
+      }
+  
     }
-    const team = user!.clan_id
+    const team = user.clan_id
     useEffect(()=>{
       const getClan_data=()=>{
 
@@ -68,6 +72,11 @@ export default function MyTeam() {
         setStatus(1)
 
       }
+      if (typeof window !== 'undefined') {
+        // Access localStorage here
+        setUser(JSON.parse(localStorage.getItem('user')!))
+      }
+
       console.log(players)
           },[status])
     const handleSubmiteForm= (data:any)=>{
@@ -93,7 +102,11 @@ export default function MyTeam() {
         axios.request(config)
         .then((response) => {
           getUserData()
-          window.location.reload()
+          if (typeof window !== 'undefined') {
+            // Access localStorage here
+            window.location.reload()
+          }
+      
           console.log(JSON.stringify(response.data));
         })
         .catch((error) => {

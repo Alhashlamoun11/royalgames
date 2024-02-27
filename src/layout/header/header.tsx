@@ -1,5 +1,5 @@
 'use client'
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import menu_data from "@/data/menu-data";
@@ -15,7 +15,14 @@ import { signIn, useSession } from 'next-auth/react';
 import { signout } from "@/hooks/auth";
 
 const Header = ({style_2=false}:{style_2?:boolean}) => {
-  const user = JSON.parse(localStorage.getItem('user')!)
+  const [user,setUser]=useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      setUser(JSON.parse(localStorage.getItem('user')!))
+    }
+  }, []);
   console.log(user)
   const clientId = "1202268878965571604";
   const redirectUri = "http://localhost:3000/api/auth/callback";

@@ -13,7 +13,7 @@ type IProps = {
     prevSuptitle?:string;
     subtitle:string;
 }
-const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img,title,subtitle}:IProps) => {
+const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img,title,subtitle}:any) => {
   return (
     <section className="breadcrumb-area" style={{backgroundImage:`url(${bg})`}}>
     <div className="container">

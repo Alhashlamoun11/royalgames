@@ -20,7 +20,7 @@ import Pagination from "@/context/pagination";
 
 export default function MatchDetail({ params }: { params: { id: string } }) {
 
-    const [match, setMatch] = useState()
+    const [match, setMatch] = useState(Object)
     const [currentPage, setCurrentPage] = useState(1);
     const [currentClanPage, setCurrentClanPage] = useState(1);
     const [currentChallengePage, setCurrentChallengePage] = useState(1);

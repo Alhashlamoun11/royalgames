@@ -19,13 +19,13 @@ import PlayerInfoArea from "@/app/components/players/player-info-area";
 //   title: "Team Details Page",
 // };
 
+
 export default function TeamDetailsPage({params}:{params: { id: string }}) {
   const [user,setUser]= useState(Object)
   const [invites,setInvites]= useState([])
 
   useEffect(()=>{
     const getUserData=()=>{
-      const axios = require('axios');
 
 let config = {
   method: 'get',

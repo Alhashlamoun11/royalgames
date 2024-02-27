@@ -19,8 +19,16 @@ interface IFormInput {
 }
 
 const TeamDetails = ({ team, challenges, players }: any) => {
+    const [user,setUser]=useState(null);
     console.log(team)
-    const user = JSON.parse(localStorage.getItem('user')!)
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+          // Access localStorage here
+          setUser( JSON.parse(localStorage.getItem('user')!))
+        }
+      }, []);
+    
+  
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
     const [image, setImage] = useState<File | null>(null);
     const [logs, setLogs] = useState([])
@@ -90,7 +98,11 @@ const TeamDetails = ({ team, challenges, players }: any) => {
         axios.request(config)
             .then((response: any) => {
                 if (response.data.success && response.data.data != null) {
-                    localStorage.setItem('user', JSON.stringify(response.data.data))
+                        if (typeof window !== 'undefined') {
+                          // Access localStorage here
+                          localStorage.setItem('user', JSON.stringify(response.data.data))
+                        }
+                    
                     window.location.href = '/profile'
 
                 } else if (response.data.success) {

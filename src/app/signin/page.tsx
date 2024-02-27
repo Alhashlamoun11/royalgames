@@ -20,8 +20,17 @@ import Swal from "sweetalert2";
 export default function SignIn() {
 
   const [user,setUser]=useState(Object);
-  const queryString = window.location.search;
-  
+  const [queryString,setQueryString]=useState("");
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      
+      setQueryString(window.location.search)
+
+    }
+  }, []);
+
   // Create a URLSearchParams object from the query string
   const params = new URLSearchParams(queryString);
   const param1 = params.get('_id'); 
@@ -34,13 +43,20 @@ export default function SignIn() {
 
       if(user.activigion_name!='' && user.activigion_name!=null){
         
-        window.location.href='/'
+        if (typeof window !== 'undefined') {
+          // Access localStorage here
+          window.location.href='/'
+        }
+    
       }
 
     }else{
       if(user.activigion_name!='' && user.activigion_name!=null){
-        window.location.href='/'
-      }
+        if (typeof window !== 'undefined') {
+          // Access localStorage here
+          window.location.href='/'
+        }
+          }
 
     }
   },[])
@@ -64,8 +80,8 @@ export default function SignIn() {
     }
 
     console.log(Data);
-    document.querySelector("#contact-form > button").disabled=true;
-    document.querySelector("#contact-form > button").style.background="#45f8827d"
+    // document.querySelector("#contact-form > button").disabled = true;
+    // document.querySelector("#contact-form > button").style.background="#45f8827d"
     
 let data = JSON.stringify({
   "activigion_name": Data.activigion_id,
@@ -93,7 +109,11 @@ axios.request(config)
     console.log("response.data.data.acknowledged "+response.data.data.acknowledged)
 
   notifySuccess('Message sent successfully!');
-    window.location.href='/'
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      window.location.href='/'
+    }
+
   }
 
   console.log(JSON.stringify(response.data));

@@ -27,7 +27,7 @@ import TeamArea from "./components/team/team-area";
 
 export default function HomeTwo() {
 
-  const [data,setData]=useState(Object);
+  const [data,setData]=useState(null);
   const [brands,setBrands]=useState(null);
   const [video,setVideo]=useState(null);
 
