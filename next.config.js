@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  https: false,
 
     typescript: {
         ignoreBuildErrors: true,
