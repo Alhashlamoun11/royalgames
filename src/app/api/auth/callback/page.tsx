@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 
 const clientId = "1202268878965571604";
 const clientSecret = "lDlPJH3be6C3pfUuqvVCil5017p3J7Kc";
-const redirectUri = "http://localhost:3000/api/auth/callback";
+const redirectUri = "https://abdallahfront-production.up.railway.app/api/auth/callback";
 
 export default async function handler(req: any, res: NextApiResponse) {
   const code = req.searchParams.code;
