@@ -53,7 +53,7 @@ const ClanSideBar = ({topClans,serachFunction,filterByWiningFunction}:any) => {
     <div className="shop__widget">
         <h4 className="shop__widget-title">Top Clans</h4>
         <div className="shop__widget-inner">
-            {topClans.map((item) => (
+            {topClans.map((item:any) => (
             <div key={item._id} className="related__products-item">
                 <div className="related__products-thumb">
                     <Link href={`/clan/${item._id}`}>

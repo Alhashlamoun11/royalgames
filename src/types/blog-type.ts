@@ -1,11 +1,14 @@
 import { StaticImageData } from "next/image";
+import { Key } from "react";
 
 export interface IBlog {
-  id: number;
+  id: Key | null | undefined;
+  // date: ReactNode;
+  _id: string;
   img: StaticImageData;
-  author: string;
-  date: string;
-  comments: number;
   title: string;
-  desc: string;
+  type: number;
+  video_url: string;
+  text: string;
+  button_text: string;
 }

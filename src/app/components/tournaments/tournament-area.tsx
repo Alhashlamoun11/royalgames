@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Pagination from '@/context/pagination';
 
 const TournamentArea = () => {
-  const [matches,setMatches]=useState(null)
+  const [matches,setMatches]=useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [ totalPage, setTotalPage ] = useState(1);
 
@@ -47,7 +47,7 @@ axios.request(config)
                 </div>
             </div>
             <div className="row justify-content-center gutter-25">
-              {matches!=null&&matches.map((item:any) => (
+              {matches.length>0&&matches.map((item:any) => (
                 <div key={item.id} className="col-xl-4 col-lg-5 col-md-6 col-sm-9">
                   <Link itemProp={item} href={`/tournament/${item.match._id}`} >
                     <TournamentBox item={item} />

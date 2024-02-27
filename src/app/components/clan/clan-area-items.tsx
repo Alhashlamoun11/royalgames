@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import ShopSidebar from '../shop/shop-sidebar';
-import product_data from '@/data/product-data';
-import ShopItem from '../shop/shop-item';
 import ClanCard from '../cards/clan-card';
 import axios from 'axios';
 import ClanSideBar from './clan-side-bar';
@@ -100,8 +96,8 @@ const CLanAreaItems = ({ data }: any) => {
 
                         <section style={{ paddingTop: '50px' }} className="trendingNft-area section-pt-50 section-pb-90">
                             <div className="row justify-content-center row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1">
-                                {clans.map((item) => item.owner_id ? (
-                                    <div className='col'>
+                                {clans.map((item:any,i) => item.owner_id ? (
+                                    <div key={i} className='col'>
                                         <ClanCard item={item} />
                                     </div>
                                 ) : null)}

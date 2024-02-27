@@ -6,7 +6,7 @@ import Pagination from '@/context/pagination';
 
 const BlogArea = () => {
 
-  const [data,setData]=useState(null);
+  const [data,setData]=useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [ totalPage, setTotalPage ] = useState(1);
 

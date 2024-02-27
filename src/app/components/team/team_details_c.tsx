@@ -22,50 +22,54 @@ const TeamDetails = ({ team, challenges, players }: any) => {
     console.log(team)
     const user = JSON.parse(localStorage.getItem('user')!)
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
-    const [image,setImage]=useState()
-    const [logs,setLogs]=useState([])
+    const [image, setImage] = useState<File | null>(null);
+    const [logs, setLogs] = useState([])
 
-    const handleSubmitForm=(data:any)=>{
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setImage(e.target.files ? e.target.files[0] : null);
+      };
+    
+    const handleSubmitForm = (data: any) => {
         console.log(data)
-            
-            const FormData = require('form-data');
-            let formData = new FormData();
-            
-            if (data.name) 
+
+        const FormData = require('form-data');
+        let formData = new FormData();
+
+        if (data.name)
             formData.append('name', data.name);
-            
-            if (data.description)
+
+        if (data.description)
             formData.append('description', data.description);
-            
-            if (data.short_name) 
+
+        if (data.short_name)
             formData.append('short_name', data.short_name);
 
-            formData.append('clan_id', team._id);
-            formData.append('user_id', user._id);
-            
-            if (image) 
+        formData.append('clan_id', team._id);
+        formData.append('user_id', user._id);
+
+        if (image)
             formData.append('image', image);
-            
-            let config = {
-              method: 'post',
-              maxBodyLength: Infinity,
-              url: `${process.env.BACKEND_URL}/update_clan`,
-              headers: { 
+
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `${process.env.BACKEND_URL}/update_clan`,
+            headers: {
                 'Content-Type': 'multipart/form-data',
-              },
-              data : formData
-            };
-            
-            axios.request(config)
+            },
+            data: formData
+        };
+
+        axios.request(config)
             .then((response) => {
-              window.location.reload()
-              console.log(JSON.stringify(response.data));
+                window.location.reload()
+                console.log(JSON.stringify(response.data));
             })
             .catch((error) => {
-              console.log(error);
+                console.log(error);
             });
-            
-                    
+
+
     }
     const handleLeavTeam = () => {
         const axios = require('axios');
@@ -85,21 +89,21 @@ const TeamDetails = ({ team, challenges, players }: any) => {
 
         axios.request(config)
             .then((response: any) => {
-                if (response.data.success && response.data.data!=null) {
+                if (response.data.success && response.data.data != null) {
                     localStorage.setItem('user', JSON.stringify(response.data.data))
                     window.location.href = '/profile'
 
-                }else if(response.data.success){
+                } else if (response.data.success) {
                     Swal.fire({
-                        title:"Info",
-                        text:response.data.message,
-                        icon:"warning"
+                        title: "Info",
+                        text: response.data.message,
+                        icon: "warning"
                     })
-                }else{
+                } else {
                     Swal.fire({
-                        title:"Error",
-                        text:response.data.message,
-                        icon:"error"
+                        title: "Error",
+                        text: response.data.message,
+                        icon: "error"
                     })
 
                 }
@@ -111,27 +115,27 @@ const TeamDetails = ({ team, challenges, players }: any) => {
 
     }
 
-    useEffect(()=>{
-        const getClanLogs=()=>{
-let config = {
-  method: 'get',
-  maxBodyLength: Infinity,
-  url: `${process.env.BACKEND_URL}/get_clan_logs/${user.clan_id._id}`,
-  headers: { }
-};
+    useEffect(() => {
+        const getClanLogs = () => {
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${process.env.BACKEND_URL}/get_clan_logs/${user.clan_id._id}`,
+                headers: {}
+            };
 
-axios.request(config)
-.then((response) => {
-    setLogs(response.data.data)
-  console.log(JSON.stringify(response.data));
-})
-.catch((error) => {
-  console.log(error);
-});
+            axios.request(config)
+                .then((response) => {
+                    setLogs(response.data.data)
+                    console.log(JSON.stringify(response.data));
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
 
         }
         getClanLogs()
-    },[])
+    }, [])
 
     return (
         <>
@@ -161,10 +165,10 @@ axios.request(config)
                       </div> */}
 
                             <div className="shop__details-price">
-              <span style={{marginRight:'20px'}} className="title">{team.name}</span>
-                <span className="tg-btn-2">
-                  {team.type}
-                </span>
+                                <span style={{ marginRight: '20px' }} className="title">{team.name}</span>
+                                <span className="tg-btn-2">
+                                    {team.type}
+                                </span>
 
                                 {/* <span className="amount">${product.price.toFixed(2)} <span className="stock-status">- {product.status}</span></span> */}
                             </div>
@@ -179,7 +183,7 @@ axios.request(config)
                               <li onClick={()=> setModel('rt30')} className={model=== 'rt30'?'active':''}>rt30</li>
                           </ul>
                       </div> */}
-                      <TeamInfoArea user={team}/>
+                            <TeamInfoArea user={team} />
                             {/* <div className="shop__details-qty">
                                 <h4>Achievments : </h4>
                                 <Achievments background="#0f161b" data={team} iconWidth={50} />
@@ -254,7 +258,7 @@ axios.request(config)
                                                                     <ErrorMsg msg={errors.short_name?.message as string} />
                                                                     <div className="input-grp row">
                                                                         <label >Short Name: </label>
-                                                                        <input {...register("short_name")}  name="short_name" id="short_name" type="text" contentEditable={true} defaultValue={team.short_name} placeholder="Team Short Name *" />
+                                                                        <input {...register("short_name")} name="short_name" id="short_name" type="text" contentEditable={true} defaultValue={team.short_name} placeholder="Team Short Name *" />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-sm-6">
@@ -262,13 +266,16 @@ axios.request(config)
                                                                     <div className="input-grp row">
                                                                         <label>Clan Image :</label>
                                                                         <input {...register("image")} name="image" id="image"
-                                                                            onChange={(e) => setImage(e.target.files[0])}
+                                                                            // onChange={(e) => {
+                                                                            //     setImage(e.target.files != null ? e.target.files[0] : null)
+                                                                            // }}
+                                                                            onChange={handleImageChange}
                                                                             type="file" />
                                                                     </div>
                                                                 </div>
                                                                 <ErrorMsg msg={errors.description?.message as string} />
                                                                 <div className="input-grp row">
-                                                                        <label>Description :</label>
+                                                                    <label>Description :</label>
                                                                     <textarea placeholder="Clan Description" {...register("description")} name="description" id="description">{team.description}</textarea>
                                                                 </div>
 
@@ -280,7 +287,7 @@ axios.request(config)
                                             </div>
                                         </div>
                                         <div className="tab-pane animation-none fade" id="editeMembers" role="tabpanel" aria-labelledby="editeMembers-tab">
-                                                {players.length > 0 ? (<CardsArea players={players} id={team._id}/>) : (<h5>No Data Found</h5>)}
+                                            {players.length > 0 ? (<CardsArea players={players} id={team._id} />) : (<h5>No Data Found</h5>)}
 
                                         </div>
                                         <div className="tab-pane animation-none fade" id="challenges" role="tabpanel" aria-labelledby="challenges-tab">
@@ -290,9 +297,9 @@ axios.request(config)
 
                                         <div className="tab-pane animation-none fade" id="logs" role="tabpanel" aria-labelledby="logs-tab">
                                             {/* related products start */}
-                                            <ul style={{maxHeight:'300px',listStyleType:'none',fontSize:'14px',overflowY:'scroll'}}>
-                                            {logs.length > 0 ? logs.map(e=>(<li>{new Date(e.created_at).toISOString().split('T')[0]} {new Date(e.created_at).toISOString().split('T')[1]}:~$ {e.log}</li>)) : (<h5>No Data Found</h5>)}
-                                            {/* related products end */}
+                                            <ul style={{ maxHeight: '300px', listStyleType: 'none', fontSize: '14px', overflowY: 'scroll' }}>
+                                                {logs.length > 0 ? logs.map((e: any, i) => (<li key={i}>{new Date(e.created_at).toISOString().split('T')[0]} {new Date(e.created_at).toISOString().split('T')[1]}:~$ {e.log}</li>)) : (<h5>No Data Found</h5>)}
+                                                {/* related products end */}
                                             </ul>
                                         </div>
                                     </div>) : (
@@ -306,7 +313,7 @@ axios.request(config)
                                             </div>
                                             <div className="tab-pane animation-none fade" id="mempers" role="tabpanel" aria-labelledby="mempers-tab">
                                                 {/* related products start */}
-                                                {players.length > 0 ? (<CardsArea players={players} id={team._id}/>) : (<h5>No Data Found</h5>)}
+                                                {players.length > 0 ? (<CardsArea players={players} id={team._id} />) : (<h5>No Data Found</h5>)}
                                                 {/* related products end */}
                                             </div>
                                         </div>

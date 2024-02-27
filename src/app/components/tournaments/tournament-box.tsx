@@ -5,12 +5,12 @@ import { ITournament } from "@/types/tournament-type";
 import CountdownTimer from "../timer/countdown-timer";
 import TournamentBoxBgPatch from "../svg/t-box-bg";
 
-const TournamentBox = ({ item }: { item: ITournament }) => {
+const TournamentBox = ({ item }: { item: any }) => {
   console.log(item)
   function formatDateString(dateString:any) {
     const date = new Date(dateString);
     
-    const options = {
+    const options: Intl.DateTimeFormatOptions = {
       year: 'numeric',
       month: '2-digit',
       day: '2-digit',
@@ -43,7 +43,7 @@ const TournamentBox = ({ item }: { item: ITournament }) => {
         <span>{"item.places"} prize Places</span>
       </div> */}
       <ul className="tournament__box-list list-wrap">
-        {item.clan.length>0&&item.clan.map((l,i) => i<8?(
+        {item.clan.length>0&&item.clan.map((l:any,i:number) => i<8?(
           <li key={l.id}>
             <div className="tournament__box-list-item">
               <div className="tournament__player-thumb">

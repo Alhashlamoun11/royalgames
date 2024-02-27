@@ -12,6 +12,7 @@ import Link from "next/link";
 import { File } from "buffer";
 import { useEffect, useState } from "react";
 import getClanData from "@/hooks/clanData";
+import axios from "axios";
 
 
 // export const metadata: Metadata = {
@@ -27,13 +28,12 @@ interface IFormInput {
   
 export default function Clan({params}:{params: { id: string }}) {
     const [image,setImage]=useState()
-    const [clan,setClan]=useState(null);
+    const [clan,setClan]=useState({name:''});
     const [players,setPlayers]=useState({});
     const [challenges,setChallenges]=useState({});
     const [status,setStatus]=useState(0);
 
     useEffect(()=>{
-      const axios = require('axios');
 
       let config = {
         method: 'get',

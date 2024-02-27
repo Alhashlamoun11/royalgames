@@ -151,8 +151,8 @@ console.log(id)
       <div style={{maxHeight:"350px",overflowY:"scroll", background: "#070a0c", position: 'absolute', zIndex: '3', padding: '20px' }}>
         <input onChange={e => { handleSearchMembers(e) }} style={{ border: '1.5px solid #45f882', borderRadius: '5px' }} placeholder='name' />
         <ul style={{ listStyleType: 'none', background: "#070a0c", padding: '5px', borderRadius: '5px' }} id="members">
-          {members.length > 0 ? members.map((item: any) => item._id!=user._id?(
-            <li>
+          {members.length > 0 ? members.map((item: any,i) => item._id!=user._id?(
+            <li key={i}>
               <Link href={'/profile/' + item._id}>
                 <img style={{ margin: '0 10px 0 0', borderRadius: '50px' }} width={'50px'} src={item.avatare} />{item.global_name}
                 <button
@@ -246,7 +246,7 @@ console.log(id)
 
   }
 
-  const handleEditeChange=(e,id,item)=>{
+  const handleEditeChange=(e:any,id:any,item:any)=>{
     const val=e.target.value
     if(val=="upgrade")
       handelUserLevel(id,1)
@@ -308,9 +308,9 @@ console.log(id)
           </div>
         </div>
         <div className="swiper-container trendingNft-active row" style={{ gap: '0 60px' }}>
-          {clanMembers.map((item: any) => (
+          {clanMembers.map((item: any,i) => (
             // <SwiperSlide key={item._id}>
-            <div style={{
+            <div key={i} style={{
               maxWidth: '350px',
               maxHeight: '350px'
             }} className="trendingNft__item">

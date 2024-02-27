@@ -158,8 +158,9 @@ const UpcomingMatches = ({challenges,id}:any) => {
         <div className="row">
           <div className="col-12">
             <div className="upcoming-match__lists">
-              {challengesData.map(item=>(
+              {challengesData.map((item:any,i)=>(
               <UpcomingMatchItem
+              key={i}
               id1={item.team_1._id}
               id2={item.team_2._id}
               date={item.created_at}

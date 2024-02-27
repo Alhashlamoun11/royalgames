@@ -11,7 +11,7 @@ const redirectUri = "http://localhost:3000/api/auth/callback";
 export default async function handler(req: any, res: NextApiResponse) {
   const code = req.searchParams.code;
   let founded=false;
-  let user={};
+  let user=null;
   try {
     // Exchange the authorization code for an access token
     const tokenResponse = await axios.post(

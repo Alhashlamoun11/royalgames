@@ -65,7 +65,7 @@ const TeamArea = () => {
         <Swiper {...slider_setting} modules={[Navigation,Pagination]} className="swiper-container streamers-active">
           
           {team_data.map((t, i) => (
-                  <SwiperSlide key={t._id}>
+                  <SwiperSlide key={i}>
             <div
               data-wow-delay={`.${i + 1}s`}
             >

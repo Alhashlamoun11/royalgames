@@ -20,7 +20,7 @@ import PlayerInfoArea from "@/app/components/players/player-info-area";
 // };
 
 export default function TeamDetailsPage({params}:{params: { id: string }}) {
-  const [user,setUser]= useState(null)
+  const [user,setUser]= useState(Object)
   const [invites,setInvites]= useState([])
 
   useEffect(()=>{
@@ -35,10 +35,10 @@ let config = {
 };
 
 axios.request(config)
-.then((response) => {
+.then((response:any) => {
   setUser(response.data)
 })
-.catch((error) => {
+.catch((error:any) => {
   console.log(error);
 });
 
@@ -59,7 +59,7 @@ axios.request(config)
         prevSuptitle="Activigion Name: "
           title={user.username}
           subtitle={user.activigion_name}
-          bg={brd_bg}
+          bg={brd_bg.src}
           
           brd_img={user.avatare}
         />

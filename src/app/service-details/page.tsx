@@ -25,8 +25,8 @@ export default function ServiceDetailsPage() {
         <BreadcrumbArea
           title="SERVICE SINGLE"
           subtitle="SERVICES DETAILS"
-          bg={brd_bg}
-          brd_img={brd_img}
+          bg={brd_bg.src}
+          brd_img={brd_img.src}
         />
         {/* breadcrumb area end */}
 

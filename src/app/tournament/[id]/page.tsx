@@ -103,6 +103,7 @@ export default function MatchDetail({ params }: { params: { id: string } }) {
                                                     {match && match.clans.map((item:any, index:any) => (
 
                                                         <tr
+                                                        key={index}
                                                         style={{
                                                             backgroundImage: "-ms-linear-gradient(0deg,#1f2935 0,transparent 100%,#10181f 100%)",
                                                             boxShadow: "rgb(69 248 130) 0px 2px 5px 0px",

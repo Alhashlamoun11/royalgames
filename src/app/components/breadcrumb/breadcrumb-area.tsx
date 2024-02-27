@@ -7,15 +7,15 @@ import default_brd_img from '@/assets/img/others/breadcrumb_img01.png';
 
 // props type
 type IProps = {
-    bg?:StaticImageData,
-    brd_img?:StaticImageData,
+    bg?:string,
+    brd_img?:string,
     title:string;
     prevSuptitle?:string;
     subtitle:string;
 }
-const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg,brd_img,title,subtitle}:IProps) => {
+const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img,title,subtitle}:IProps) => {
   return (
-    <section className="breadcrumb-area" style={{backgroundImage:`url(${bg.src})`}}>
+    <section className="breadcrumb-area" style={{backgroundImage:`url(${bg})`}}>
     <div className="container">
         <div className="breadcrumb__wrapper">
             <div className="row">
@@ -40,7 +40,7 @@ const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg,brd_img,title,subtitl
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                         backgroundImage:`url(${background.src})`}} className="breadcrumb__img">
-                        <Image width={300} height={200} src={brd_img} alt="img" style={{minWidth:'200px',minHeight:'200px',borderRadius:'100px',marginTop:'7px',marginLeft:'50px',height:'auto',width:'auto'}} />
+                        <img width={300} height={200} src={brd_img} alt="img" style={{minWidth:'200px',minHeight:'200px',borderRadius:'100px',marginTop:'7px',marginLeft:'50px',height:'auto',width:'auto'}} />
                     </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@ import PlayerInfoArea from "../components/players/player-info-area";
 // };
 
 export default function TeamDetailsPage() {
-  const [user,setUser]= useState({_id:''})
+  const [user,setUser]= useState(Object)
   const [invites,setInvites]= useState([])
 
   const answer=({status,invite_id,clan_id}:any)=>{
@@ -134,7 +134,7 @@ axios.request(config)
         prevSuptitle="Activigion Name: "
           title={user.username}
           subtitle={user.activigion_name}
-          bg={brd_bg}
+          bg={brd_bg.src}
           
           brd_img={user.avatare}
         />
@@ -163,8 +163,8 @@ axios.request(config)
                               <div className="row">
             <div className="col-12">
               <div className="tournament__list-item-wrapper">
-                {invites!=null?invites.map((item, i) => (
-                  <AllInvites handleAnswer={handleAnswer} key={item._id} item={item} data={item.clan_id} index={i} />
+                {invites!=null?invites.map((item:any, i) => (
+                  <AllInvites key={i} handleAnswer={handleAnswer} item={item} data={item.clan_id} index={i} />
                 )):(<h5>No Data Found</h5>)}
               </div>
             </div>

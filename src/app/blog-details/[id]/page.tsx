@@ -4,14 +4,13 @@ import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import blog_data from "@/data/blog-data";
 import BreadcrumbAreaThree from "../../components/breadcrumb/breadcrumb-area-3";
-import BlogDetailsArea from "../../components/blog-details/blog-details-area";
 
 export const metadata: Metadata = {
   title: "Blog Details Page",
 };
 
 export default function BlogDetailsPage({params}:{params:{id:string}}) {
-  const blog = blog_data.find(b => Number(b.id) === Number(params.id))!;
+  // const blog = blog_data.find(b => Number(b.id) === Number(params.id))!;
   return (
     <Wrapper>
       {/* header start */}
@@ -25,7 +24,7 @@ export default function BlogDetailsPage({params}:{params:{id:string}}) {
         {/* breadcrumb area end */}
 
         {/* blog area start */}
-        <BlogDetailsArea blog={blog} />
+        {/* <BlogDetailsArea blog={blog} /> */}
         {/* blog area end */}
       </main>
       {/* main area end */}

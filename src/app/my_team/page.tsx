@@ -29,7 +29,7 @@ interface IFormInput {
   }
   
 export default function MyTeam() {
-    const [image,setImage]=useState()
+    const [image,setImage]=useState(null)
     const [clan,setClan]=useState(null);
     const [players,setPlayers]=useState({});
     const [challenges,setChallenges]=useState({});
@@ -42,12 +42,11 @@ export default function MyTeam() {
     const team = user!.clan_id
     useEffect(()=>{
       const getClan_data=()=>{
-        const axios = require('axios');
 
         let config = {
           method: 'get',
           maxBodyLength: Infinity,
-          url: `${process.env.BACKEND_URL}/get_clan_data/${user.clan_id._id}`,
+          url: process.env.BACKEND_URL+'/get_clan_data/'+user.clan_id._id,
           headers: { }
         };
         
@@ -198,9 +197,9 @@ export default function MyTeam() {
         <div className="col-sm-6">
           <ErrorMsg msg={errors.image?.message as string} />
           <div className="input-grp">
-            <input {...register("image")} name="image" id="image" 
-                    onChange={(e) => setImage(e.target.files[0])}
-            type="file"/>
+            {/* <input {...register("image")} name="image" id="image" 
+                    onChange={(e:any) => setImage(e.target!=null?e.target.files[0]:null)}
+            type="file"/> */}
           </div>
         </div>
         <div className="col-sm-9">

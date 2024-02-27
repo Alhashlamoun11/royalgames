@@ -4,7 +4,7 @@ import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import BreadcrumbAreaThree from "../components/breadcrumb/breadcrumb-area-3";
 import blog_data from "@/data/blog-data";
-import BlogDetailsArea from "../components/blog-details/blog-details-area";
+// import BlogDetailsArea from "../components/blog-details/blog-details-area";
 
 // export const metadata: Metadata = {
 //   title: "Blog Details Page",
@@ -25,7 +25,7 @@ export default function BlogDetailsPage() {
         {/* breadcrumb area end */}
 
         {/* blog area start */}
-        <BlogDetailsArea blog={blog} />
+        {/* <BlogDetailsArea blog={blog} /> */}
         {/* blog area end */}
       </main>
       {/* main area end */}

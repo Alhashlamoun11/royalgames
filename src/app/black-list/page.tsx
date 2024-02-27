@@ -3,7 +3,6 @@ import Wrapper from "@/layout/wrapper";
 import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import BreadcrumbArea from "../components/breadcrumb/breadcrumb-area";
-import AboutAreaThree from "../components/about-area/about-area-3";
 import ServicesArea from "../components/services/services-area";
 import TeamArea from "../components/team/team-area";
 import BlackListArea from "../components/players/black_list_players";

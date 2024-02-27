@@ -19,7 +19,7 @@ import Swal from "sweetalert2";
 
 export default function SignIn() {
 
-  const [user,setUser]=useState({});
+  const [user,setUser]=useState(Object);
   const queryString = window.location.search;
   
   // Create a URLSearchParams object from the query string

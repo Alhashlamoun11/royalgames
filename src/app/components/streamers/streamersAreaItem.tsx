@@ -94,8 +94,8 @@ const StreamersAreaItem = ({ data }: any) => {
 
                         <section style={{ paddingTop: '50px' }} className="trendingNft-area section-pt-50 section-pb-90">
                             <div className="row justify-content-center row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1">
-                            {players&&players.map((item:any) => item.user_id ? (
-                                    <div className='col'>
+                            {players&&players.map((item:any,i) => item.user_id ? (
+                                    <div key={i} className='col'>
                 <div className="streamers__item">
                     <div className="streamers__thumb">
                         <Link href={`/profile/${item.user_id._id}`}>
