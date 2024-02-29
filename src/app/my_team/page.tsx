@@ -15,7 +15,7 @@ import getClanData from "@/hooks/clanData";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { getUserData } from "@/hooks/userData";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { get } from "local-storage";
 
 
@@ -107,8 +107,8 @@ export default function MyTeam() {
         axios.request(config)
         .then((response) => {
           getUserData()
-            router.refresh()
           console.log(JSON.stringify(response.data));
+            redirect('/my-team')
         })
         .catch((error) => {
           console.log(error);
