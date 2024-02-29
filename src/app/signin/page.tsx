@@ -8,7 +8,7 @@ import ContactArea from "../components/contact/contact-area";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { notifySuccess } from "@/utils/toast";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { getUserData } from "@/hooks/userData";
 import { auth, signin } from "@/hooks/auth";
 import Swal from "sweetalert2";
@@ -17,24 +17,14 @@ import Swal from "sweetalert2";
 //   title: "Contact Page",
 // };
 
-export default function SignIn() {
+export default function SignIn({ _id }:any) {
 
   const [user,setUser]=useState(Object);
-  const [queryString,setQueryString]=useState("");
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Access localStorage here
-      
-      setQueryString(window.location.search)
-
-    }
-  }, []);
 
   // Create a URLSearchParams object from the query string
-  const params = new URLSearchParams(queryString);
-  const param1 = params.get('_id'); 
-
+  // const params = new URLSearchParams(document.location.search);
+  const param1 = _id; 
+const router=useRouter();
 
   useEffect(()=>{
     if(param1!=null){
@@ -43,19 +33,13 @@ export default function SignIn() {
 
       if(user.activigion_name!='' && user.activigion_name!=null){
         
-        if (typeof window !== 'undefined') {
-          // Access localStorage here
-          window.location.href='/'
-        }
+          router.push('/')
     
       }
 
     }else{
       if(user.activigion_name!='' && user.activigion_name!=null){
-        if (typeof window !== 'undefined') {
-          // Access localStorage here
-          window.location.href='/'
-        }
+        router.push('/')
           }
 
     }
@@ -109,10 +93,7 @@ axios.request(config)
     console.log("response.data.data.acknowledged "+response.data.data.acknowledged)
 
   notifySuccess('Message sent successfully!');
-    if (typeof window !== 'undefined') {
-      // Access localStorage here
-      window.location.href='/'
-    }
+      router.push('/')
 
   }
 
@@ -129,7 +110,7 @@ axios.request(config)
   return (
     <Wrapper>
       {/* header start */}
-      <Header/>
+      <Header style_2={true}/>
       {/* header end */}
 
       {/* main area start */}

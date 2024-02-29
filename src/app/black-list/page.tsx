@@ -9,6 +9,7 @@ import BlackListArea from "../components/players/black_list_players";
 import { useState } from "react";
 import Image from "next/image";
 import BlackListArea2 from "../components/black-list/black-list-area";
+import BreadcrumbAreaThree from "../components/breadcrumb/breadcrumb-area-3";
 
 
 type INavProps = {id: string;img: any;isActive?:boolean}
@@ -50,7 +51,7 @@ export default function BlackListPage() {
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-        <BreadcrumbArea title="Black List" subtitle="Black List" />
+        <BreadcrumbAreaThree title="Black List" subtitle="Black List" />
         {/* breadcrumb area end */}
 
 <BlackListArea2 />

@@ -13,7 +13,7 @@ type IProps = {
     prevSuptitle?:string;
     subtitle:string;
 }
-const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img,title,subtitle}:any) => {
+const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img=default_brd_img,title,subtitle}:any) => {
   return (
     <section className="breadcrumb-area" style={{backgroundImage:`url(${bg})`}}>
     <div className="container">
@@ -40,7 +40,7 @@ const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img,title,sub
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                         backgroundImage:`url(${background.src})`}} className="breadcrumb__img">
-                        <img width={300} height={200} src={brd_img} alt="img" style={{minWidth:'200px',minHeight:'200px',borderRadius:'100px',marginTop:'7px',marginLeft:'50px',height:'auto',width:'auto'}} />
+                        <img width={300} height={200} src={brd_img.src} alt="img" style={{minWidth:'200px',minHeight:'200px',borderRadius:'100px',marginTop:'7px',marginLeft:'50px',height:'auto',width:'auto'}} />
                     </div>
                 </div>
             </div>

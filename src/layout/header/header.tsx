@@ -3,35 +3,49 @@ import React,{useEffect, useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import menu_data from "@/data/menu-data";
-import logo from '@/assets/img/logo/logo.png';
+import logo from '@/assets/img/logo/royal_logo.png';
 import useSticky from "@/hooks/use-sticky";
-import {usePathname} from 'next/navigation'
+import { usePathname, useRouter, useSearchParams} from 'next/navigation'
 import SearchPopup from "@/app/components/common/search-popup";
 import OffCanvas from "@/app/components/common/off-canvas";
 import MobileOffCanvas from "@/app/components/common/mobile-offcanvas";
 import SvgIconCom from "@/app/components/common/svg-icon-anim";
 import shape from '@/assets/img/icons/shape02.svg'
-import { signIn, useSession } from 'next-auth/react';
 import { signout } from "@/hooks/auth";
+import { get } from "local-storage";
+import { getUserData } from "@/hooks/userData";
 
-const Header = ({style_2=false}:{style_2?:boolean}) => {
-  const [user,setUser]=useState(null);
+const Header = ({_id}:any,{style_2=false}:{style_2?:boolean}) => {
+  const pathname = usePathname();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Access localStorage here
-      setUser(JSON.parse(localStorage.getItem('user')!))
-    }
-  }, []);
-  console.log(user)
+  const [user,setUser]=useState(get('user'));
+const router=useRouter()
+const id = useSearchParams();
+
   const clientId = "1202268878965571604";
   const redirectUri = "https://abdallahfront-production.up.railway.app/api/auth/callback";
   const handleDiscordSignIn = () => {
-    window.location.href = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify`;
+    const path = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify`;
+    router.push(path)
   };
 
+  // const searchParams = new URLSearchParams(document.location.search);
+
+useEffect(()=>{
+
+  if(user==null &&typeof id!=null&& id!=null){
+    console.log("user")
+    const _id=id.get('_id');
+    if(_id!=null){
+      getUserData(user,setUser,_id.toString())
+    }
+  }
+
+}),[]
+  
+  console.log(user)
+
   const {sticky,isStickyVisible} = useSticky();
-  const pathname = usePathname();
   const [isSearchOpen,setIsSearchOpen] = useState<boolean>(false);
   const [isOffCanvasOpen,setIsOffCanvasOpen] = useState<boolean>(false);
   const [openMobileOffCanvas,setOpenMobileOffCanvas] = useState<boolean>(false);
@@ -153,11 +167,11 @@ const Header = ({style_2=false}:{style_2?:boolean}) => {
       {/* <!-- header-search-end --> */}
 
       {/* off canvas start */}
-      <OffCanvas isOffCanvasOpen={isOffCanvasOpen} setIsOffCanvasOpen={setIsOffCanvasOpen} />
+      <OffCanvas user={user} isOffCanvasOpen={isOffCanvasOpen} setIsOffCanvasOpen={setIsOffCanvasOpen} />
       {/* off canvas end */}
 
       {/*mobile off canvas start */}
-      <MobileOffCanvas openMobileOffCanvas={openMobileOffCanvas} setOpenMobileOffCanvas={setOpenMobileOffCanvas} />
+      <MobileOffCanvas user={user} openMobileOffCanvas={openMobileOffCanvas} setOpenMobileOffCanvas={setOpenMobileOffCanvas} />
       {/*mobile off canvas end */}
     </header>
   );

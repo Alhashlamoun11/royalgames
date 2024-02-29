@@ -1,6 +1,7 @@
 // pages/api/auth/discord.ts
 import { Storage } from '@/hooks/session';
 import axios from 'axios';
+import { set } from 'local-storage';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { redirect } from 'next/navigation';
 
@@ -79,6 +80,7 @@ export default async function handler(req: any, res: NextApiResponse) {
     console.log(user.user._id)
 
     if(founded){
+      set('user',user.user)
       redirect('/?_id='+user.user._id)
     }else{
       // console.log("user.user:; "+user._id)

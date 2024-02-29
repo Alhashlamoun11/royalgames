@@ -26,7 +26,8 @@ const AboutAreaTwo = () => {
                      </div>
                   </div>
                   <div  className="col-xl-6 col-lg-6 col-md-10">
-                     <div className="section__title text-start mb-30">
+                     <div style={{
+    direction: "rtl"}} className="section__title text-start mb-30">
                         <h3 style={{textAlign:'right'}} className="title">من  نحن</h3>
                      </div>
                      <div dir="rtl" className="about__content-two">
@@ -40,7 +41,7 @@ const AboutAreaTwo = () => {
                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" version="1.1">
                               <path id="textPath" d="M 0,75 a 75,75 0 1,1 0,1 z"></path>
                               <text>
-                                 <textPath href="#textPath">Royal Games Clup</textPath>
+                                 <textPath href="#textPath">Royal Games</textPath>
                               </text>
                            </svg>
                         </div>

@@ -5,13 +5,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import Image from 'next/image';
 import nft_data from '@/data/nft-data';
-import gold from '@/assets/img/icons/download (2).jpeg';
-import silver from '@/assets/img/icons/download (3).jpeg';
-import pronze from '@/assets/img/icons/download (4).jpeg';
+import gold from '@/assets/img/icons/download (2).png';
+import silver from '@/assets/img/icons/download (3).png';
+import pronze from '@/assets/img/icons/download (4).png';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import errorMessage from '@/hooks/messageError';
-
+import { AppRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { useRouter } from 'next/navigation';
+import { get } from 'local-storage';
 
 // slider setting 
 const slider_setting = {
@@ -46,7 +48,7 @@ const slider_setting = {
   }
 }
 const CardsArea = ({players,id}:any) => {
-  const user = JSON.parse(localStorage.getItem('user')!)
+  const user = (get('user')!)
 console.log(id)
   const[clanMembers,setclanMembers]=useState([])
   const [popUpMenu, setPopUpMenu] = React.useState(false);
@@ -54,7 +56,7 @@ console.log(id)
   const [popUpEditeMenu, setPopUpEditeMenu] = React.useState(false);
   const [members, setMembers] = useState([]);
   const [totatlplayers, setTotalPlayers] = useState(0)
-
+const router =useRouter();
   const [currentPagePlayers, setCurrentPagePlayers] = useState(1);
   const [ totalPagePlayers, setTotalPagePlayers ] = useState(1);
 
@@ -232,7 +234,7 @@ console.log(id)
       .then((response: any) => {
 
         if(response.data.success){
-          window.location.reload()
+          router.refresh()
           console.log(JSON.stringify(response.data));
         }else{
           errorMessage(response.data.message)

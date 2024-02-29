@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import logo from '@/assets/img/logo/logo.png';
+import logo from '@/assets/img/logo/royal_logo.png';
 import social_data from "@/data/social-data";
 import MobileMenus from "./mobile-menus";
 import Link from "next/link";
@@ -11,7 +11,7 @@ type IProps = {
   setOpenMobileOffCanvas: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const MobileOffCanvas = ({openMobileOffCanvas,setOpenMobileOffCanvas}:IProps) => {
+const MobileOffCanvas = ({user,openMobileOffCanvas,setOpenMobileOffCanvas}:any) => {
   // handle close search
   const handleCloseOffCanvas = (audioPath: string) => {
     setOpenMobileOffCanvas(false)
@@ -39,7 +39,7 @@ const MobileOffCanvas = ({openMobileOffCanvas,setOpenMobileOffCanvas}:IProps) =>
             </form>
           </div>
           <div className="tgmobile__menu-outer">
-            <MobileMenus/>
+            <MobileMenus user={user}/>
           </div>
           <div className="social-links">
             <ul className="list-wrap">

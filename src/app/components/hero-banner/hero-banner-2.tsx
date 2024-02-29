@@ -2,7 +2,7 @@
 import React from "react";
 import banner_bg from "@/assets/img/slider/banner_bg.jpg";
 
-const HeroBannerTwo = ({title='Welcome',supTitle='video games online'}:any) => {
+const HeroBannerTwo = ({title='Welcome',supTitle='Royal Games online'}:any) => {
   return (
     <section className="banner__area banner__padding">
       <div

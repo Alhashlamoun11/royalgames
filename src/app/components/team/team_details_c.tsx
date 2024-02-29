@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
 import Link from 'next/link';
 import CardsArea from '../cards/members_area';
 import TeamInfoArea from './team-info-area';
+import { get, set } from 'local-storage';
+import { redirect, useRouter } from 'next/navigation';
 
 interface IFormInput {
     name: string;
@@ -19,20 +21,16 @@ interface IFormInput {
 }
 
 const TeamDetails = ({ team, challenges, players }: any) => {
-    const [user,setUser]=useState(null);
+    const [user,setUser]=useState(get('user'));
     console.log(team)
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-          // Access localStorage here
-          setUser( JSON.parse(localStorage.getItem('user')!))
-        }
       }, []);
     
   
     const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
     const [image, setImage] = useState<File | null>(null);
     const [logs, setLogs] = useState([])
-
+const router=useRouter();
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setImage(e.target.files ? e.target.files[0] : null);
       };
@@ -70,7 +68,7 @@ const TeamDetails = ({ team, challenges, players }: any) => {
 
         axios.request(config)
             .then((response) => {
-                window.location.reload()
+                router.refresh()
                 console.log(JSON.stringify(response.data));
             })
             .catch((error) => {
@@ -98,12 +96,9 @@ const TeamDetails = ({ team, challenges, players }: any) => {
         axios.request(config)
             .then((response: any) => {
                 if (response.data.success && response.data.data != null) {
-                        if (typeof window !== 'undefined') {
-                          // Access localStorage here
-                          localStorage.setItem('user', JSON.stringify(response.data.data))
-                        }
+                          set('user', JSON.stringify(response.data.data))
                     
-                    window.location.href = '/profile'
+                          router.push('/profile')
 
                 } else if (response.data.success) {
                     Swal.fire({
@@ -225,7 +220,7 @@ const TeamDetails = ({ team, challenges, players }: any) => {
                     <div className="row">
                         <div className="col-12">
                             <div className="product__desc-wrap">
-                                {user != null && (team.owner_id == user._id || (user.clan_id._id == team._id && user.role == 0)) ?
+                                {user != null && (team.owner_id == user._id || (user.clan_id._id == team._id && user.role == 1)) ?
                                     (<ul className="nav nav-tabs" id="descriptionTab" role="tablist">
                                         <li className="nav-item" role="presentation">
                                             <button className="nav-link active" id="editeInfo-tab" data-bs-toggle="tab" data-bs-target="#editeInfo" type="button" role="tab" aria-controls="editeInfo" aria-selected="true" tabIndex={-1}>Edit Info</button>
@@ -239,6 +234,10 @@ const TeamDetails = ({ team, challenges, players }: any) => {
                                         <li className="nav-item" role="presentation">
                                             <button className="nav-link" id="logs-tab" data-bs-toggle="tab" data-bs-target="#logs" type="button" role="tab" aria-controls="logs" aria-selected="false" tabIndex={2}>Logs</button>
                                         </li>
+                                        {user != null && user.clan_id._id == team._id ?
+                                            (<li className="nav-item" role="presentation">
+                                                <button onClick={handleLeavTeam} style={{ background: "#9b0303" }} className="nav-link" >Leave</button>
+                                            </li>) : null}
 
                                     </ul>)
                                     : (<ul className="nav nav-tabs" id="descriptionTab" role="tablist">
@@ -256,7 +255,7 @@ const TeamDetails = ({ team, challenges, players }: any) => {
                                                 <button onClick={handleLeavTeam} style={{ background: "#9b0303" }} className="nav-link" >Leave</button>
                                             </li>) : null}
                                     </ul>)}
-                                {user != null && (team.owner_id == user._id || (user.clan_id._id == team._id && user.role == 0)) ?
+                                {user != null && (team.owner_id == user._id || (user.clan_id._id == team._id && user.role == 1)) ?
                                     (<div className="tab-content" id="descriptionTabContent">
                                         <div className="tab-pane animation-none fade show active" id="editeInfo" role="tabpanel" aria-labelledby="editeInfo-tab">
                                             <div className="col-lg-6 col-md-10">

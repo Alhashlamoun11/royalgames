@@ -9,22 +9,25 @@ import area_bg from '@/assets/img/bg/area_bg02.jpg';
 import AboutAreaTwo from "../components/about-area/about-area-2";
 import RoadMapArea from "../components/road-map/road-map-area";
 import StreamersArea from "../components/streamers/streamers-area";
+import TournamentArea from "../components/tournaments/tournament-area";
+import BreadcrumbAreaTwo from "../components/breadcrumb/breadcrumb-area-2";
 
 export default function AboutPage() {
   return (
     <Wrapper>
       {/* header start */}
-      <Header />
+      <Header style_2={true}/>
       {/* header end */}
 
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-        <BreadcrumbArea title="ABOUT US" subtitle="ABOUT US" />
+        <BreadcrumbAreaTwo title="ABOUT US" subtitle="ABOUT US" />
         {/* breadcrumb area end */}
 
         <AboutAreaTwo/>
 
+        <TournamentArea/>
         {/* about area start */}
         {/* <AboutAreaThree/> */}
         {/* about area end */}

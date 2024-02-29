@@ -10,6 +10,8 @@ import { Navigation, Scrollbar } from "swiper/modules";
 import { Pagination } from "reactstrap";
 
 const TeamArea = () => {
+  
+  // slider setting
   const slider_setting = {
     observer: true,
     observeParents: true,
@@ -47,6 +49,7 @@ const TeamArea = () => {
       prevEl: ".slider-button-prev",
     }
   };
+  
     
   return (
     <section
@@ -87,6 +90,12 @@ const TeamArea = () => {
           ))}
 
         </Swiper>
+        <div className="streamers__pagination">
+            <div className="slider-button-prev streamers__pagination-arrow"><i className="fas fa-angle-left"></i></div>
+            <div className="swiper-pagination streamers__pagination-dots"></div>
+            <div className="slider-button-next streamers__pagination-arrow"><i className="fas fa-angle-right"></i></div>
+        </div>
+
       </div>
     </section>
   );

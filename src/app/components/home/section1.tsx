@@ -26,7 +26,8 @@ const Section1 = ({main,playersnum,clansnum}:any) => {
                      </div>
                   </div>
                   <div  className="col-xl-6 col-lg-6 col-md-10">
-                     <div className="section__title text-start mb-30">
+                     <div style={{
+    direction: "rtl"}} className="section__title text-start mb-30">
                         <h3 style={{textAlign:'right'}} className="title">من  نحن</h3>
                      </div>
                      <div dir="rtl" className="about__content-two">

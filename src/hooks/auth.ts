@@ -1,4 +1,5 @@
 import axios from "axios";
+import { get, remove, set } from "local-storage";
 import { redirect } from "next/navigation";
 
 const signin=(id:string)=>{
@@ -16,10 +17,10 @@ const signin=(id:string)=>{
       .then((response) => {
         console.log(JSON.stringify(response.data));
         if(response.data!=null){
-          localStorage.setItem('user',JSON.stringify(response.data));
+          set('user',JSON.stringify(response.data));
       
         }else{
-          window.location.href='/'
+          redirect('/')
         }
         })
       .catch((error) => {
@@ -28,12 +29,12 @@ const signin=(id:string)=>{
   
 }
  const auth=()=>{
-    return localStorage.getItem('user')!= null || typeof localStorage.getItem('user')!='undefined'
+    return get('user')!= null || typeof get('user')!='undefined'
 }
 const signout=()=>{
-    localStorage.clear();
-    window.location.href='/'
-}
+    remove("user");
+    window.location.href=('/')
+  }
 export{
     signout,
     auth,

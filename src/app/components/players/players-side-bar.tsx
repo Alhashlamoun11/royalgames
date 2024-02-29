@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import product_data from '@/data/product-data';
 import InputRange from '../ui/input-range';
 
@@ -57,7 +56,7 @@ const PlayerSideBar = ({topplayers,serachFunction,filterByWiningFunction}:any) =
             <div key={item._id} className="related__products-item">
                 <div className="related__products-thumb">
                     <Link href={`/shop-details/${item._id}`}>
-                        <Image src={item.avatare} alt="img" width={78} height={80} />
+                        <img src={item.avatare} alt="img" width={78} height={80} />
                     </Link>
                 </div>
                 <div className="related__products-content">

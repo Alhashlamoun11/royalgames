@@ -1,10 +1,22 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import menu_data from "@/data/menu-data";
+import { signout } from "@/hooks/auth";
+import SvgIconCom from "./svg-icon-anim";
+import shape from '@/assets/img/icons/shape02.svg'
+import { useRouter } from "next/navigation";
 
-const MobileMenus = () => {
+const MobileMenus = (user) => {
   const [navTitle, setNavTitle] = useState<string>("");
+  const router=useRouter()
   //openMobileMenu
+  const clientId = "1202268878965571604";
+  const redirectUri = "https://abdallahfront-production.up.railway.app/api/auth/callback";
+  const handleDiscordSignIn = () => {
+    const path = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify`;
+    router.push(path)
+  };
+
   const openMobileMenu = (menu: string,audioPath:string) => {
     const audio = new Audio(audioPath);
     audio.play();
@@ -14,6 +26,10 @@ const MobileMenus = () => {
       setNavTitle(menu);
     }
   };
+  const handleLogOut=()=>{
+    signout()
+  }
+console.log(user)
   return (
     <ul className="navigation">
       {menu_data.map((menu, i) => (
@@ -43,6 +59,7 @@ const MobileMenus = () => {
               </div>
             </li>
           )}
+
           {!menu.sub_menu && (
             <li>
               <Link href={menu.link}>{menu.title}</Link>
@@ -50,6 +67,15 @@ const MobileMenus = () => {
           )}
         </React.Fragment>
       ))}
+                                               {user.user!=null?(           <li>
+                                                    <a onClick={handleLogOut} href='#'>Logout</a>
+                                                    </li>):                       
+                       <a onClick={(handleDiscordSignIn)} className={`${false?'tg-btn-3 tg-svg':'tg-border-btn'}`}>
+                          {false && <SvgIconCom icon={shape} id="svg-2" />}
+                          <i className="flaticon-edit"></i> ~sing in
+                        </a>
+}
+
     </ul>
   );
 };

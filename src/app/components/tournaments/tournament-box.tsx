@@ -43,7 +43,7 @@ const TournamentBox = ({ item }: { item: any }) => {
         <span>{"item.places"} prize Places</span>
       </div> */}
       <ul className="tournament__box-list list-wrap">
-        {item.clan.length>0&&item.clan.map((l:any,i:number) => i<8?(
+        {item.clan.length>0&&item.clan.map((l:any,i:number) => i<3?(
           <li key={l.id}>
             <div className="tournament__box-list-item">
               <div className="tournament__player-thumb">

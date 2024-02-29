@@ -11,6 +11,7 @@ import { auth } from "@/hooks/auth";
 import Swal from "sweetalert2";
 import AllInvites from "../components/invites/all-invites";
 import PlayerInfoArea from "../components/players/player-info-area";
+import { useRouter } from "next/navigation";
 
 // export const metadata: Metadata = {
 //   title: "Team Details Page",
@@ -19,6 +20,7 @@ import PlayerInfoArea from "../components/players/player-info-area";
 export default function TeamDetailsPage() {
   const [user,setUser]= useState(Object)
   const [invites,setInvites]= useState([])
+  const router=useRouter()
 
   const answer=({status,invite_id,clan_id}:any)=>{
     const axios = require('axios');
@@ -46,7 +48,7 @@ axios.request(config)
   else
     Swal.fire("Declined", response.data.message, "info");
 
-    window.location.reload();
+    router.refresh();
 })
 .catch((error:any) => {
   Swal.fire("something went wrong", "", "error");
@@ -79,7 +81,7 @@ axios.request(config)
     getUserData(user,setUser)
 
     if(!auth()){
-      window.location.href='/'
+      router.push('/')
 
     }else{
     }
@@ -110,7 +112,7 @@ axios.request(config)
   
 
     if(!auth()){
-      window.location.href='/'
+      router.push('/')
 
     }else{
       getInvites()
@@ -118,7 +120,7 @@ axios.request(config)
 
   },[user])
   if(user==null){
-    window.location.href='/'
+    router.push('/')
   }
 
   return (

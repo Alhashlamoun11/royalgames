@@ -15,6 +15,8 @@ import getClanData from "@/hooks/clanData";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { getUserData } from "@/hooks/userData";
+import { useRouter } from "next/navigation";
+import { get } from "local-storage";
 
 
 // export const metadata: Metadata = {
@@ -36,11 +38,10 @@ export default function MyTeam() {
     const [status,setStatus]=useState(0);
     const [user,setUser]=useState(Object);
   
+    const router=useRouter();
     if (user == null) {
-      if (typeof window !== 'undefined') {
         // Access localStorage here
-        window.location.href='/'
-      }
+        router.push('/')
   
     }
     const team = user.clan_id
@@ -72,10 +73,8 @@ export default function MyTeam() {
         setStatus(1)
 
       }
-      if (typeof window !== 'undefined') {
         // Access localStorage here
-        setUser(JSON.parse(localStorage.getItem('user')!))
-      }
+        setUser((get('user')!))
 
       console.log(players)
           },[status])
@@ -102,11 +101,7 @@ export default function MyTeam() {
         axios.request(config)
         .then((response) => {
           getUserData()
-          if (typeof window !== 'undefined') {
-            // Access localStorage here
-            window.location.reload()
-          }
-      
+            router.refresh()
           console.log(JSON.stringify(response.data));
         })
         .catch((error) => {
@@ -121,7 +116,7 @@ export default function MyTeam() {
     return status==0?(
       <Wrapper>
         {/* header start */}
-        <Header />
+        <Header style_2={true}/>
         <main className="main--area">
         <BreadcrumbAreaThree title="Loading..." subtitle='Team' />
         </main>
@@ -129,7 +124,7 @@ export default function MyTeam() {
     ):user.clan_id != null ? (
         <Wrapper>
             {/* header start */}
-            <Header />
+            <Header style_2={true}/>
             {/* header end */}
 
             {/* main area start */}
@@ -139,7 +134,7 @@ export default function MyTeam() {
                 {/* breadcrumb area end */}
 
                 {/* shop details area start */}
-                <TeamDetails team={clan} challenges={challenges} players={players}/>
+                <TeamDetails team={user.clan_id} challenges={challenges} players={players}/>
                 {/* shop details area end */}
 
             </main>
@@ -151,7 +146,7 @@ export default function MyTeam() {
         </Wrapper>
     ) : <Wrapper>
         {/* header start */}
-        <Header />
+<Header />
         {/* header end */}
 
         {/* main area start */}

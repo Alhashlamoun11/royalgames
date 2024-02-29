@@ -13,6 +13,7 @@ import UpcomingMatches from "@/app/components/upcoming-match/upcoming-matches";
 import GalleryArea from "@/app/components/gallery/gallery-area";
 import TextAnimation from "@/app/components/common/text-animation";
 import Pagination from "@/context/pagination";
+import BreadcrumbAreaTwo from "@/app/components/breadcrumb/breadcrumb-area-2";
 
 // export const metadata: Metadata = {
 //     title: "Tournament Page",
@@ -20,7 +21,7 @@ import Pagination from "@/context/pagination";
 
 export default function MatchDetail({ params }: { params: { id: string } }) {
 
-    const [match, setMatch] = useState(Object)
+    const [match, setMatch] = useState(null)
     const [currentPage, setCurrentPage] = useState(1);
     const [currentClanPage, setCurrentClanPage] = useState(1);
     const [currentChallengePage, setCurrentChallengePage] = useState(1);
@@ -59,10 +60,10 @@ export default function MatchDetail({ params }: { params: { id: string } }) {
         }
     }, [currentClanPage,currentChallengePage])
 
-    return (
+    return match!=null?(
         <Wrapper>
             {/* header start */}
-            <Header />
+            <Header  style_2={true}/>
             {/* header end */}
 
             {/* main area start */}
@@ -150,7 +151,7 @@ export default function MatchDetail({ params }: { params: { id: string } }) {
 
                                     <div className="tab-content" id="descriptionTabContent">
 
-                                        <center><h2><TextAnimation title="Challenges"  /></h2></center>
+                                        {/* <center><h2><TextAnimation title="Challenges"  /></h2></center> */}
                                         <div className="tab-pane animation-none fade show active" id="challenges" role="tabpanel" aria-labelledby="challenges-tab">
                                             {match && match.challenges.length > 0 ? (<UpcomingMatches challenges={match.challenges} />) : (<center><h5>No Challenges Found Yet</h5></center>)}
 
@@ -191,5 +192,19 @@ export default function MatchDetail({ params }: { params: { id: string } }) {
             <Footer />
             {/* footer end */}
         </Wrapper>
+    ):(
+                <Wrapper>
+            {/* header start */}
+<Header />
+            {/* header end */}
+
+            {/* main area start */}
+            <main className="main--area">
+                {/* breadcrumb area start */}
+                <BreadcrumbAreaTwo title={"LOADING..."}  subtitle={""} />
+                {/* breadcrumb area end */}
+</main>
+<Footer/>
+</Wrapper>
     );
 }

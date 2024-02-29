@@ -20,6 +20,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Section1 from "./components/home/section1";
 import TeamArea from "./components/team/team-area";
+import VideoArea from "./components/video/video-area";
+import TournamentArea from "./components/tournaments/tournament-area";
 
 // export const metadata: Metadata = {
 //   title: "Home Page Two",
@@ -104,20 +106,22 @@ getMain();
       <main className="main--area">
 
         <HeroBannerTwo  title={data.data.title} supTitle={data.data.sup_title}/>
-
         <div className="area-background" style={{backgroundImage:`url(${area_bg.src})`}}>
 
-        <Section1 main={data.data} playersnum={data.playersnum} clansnum={data.clansnum} />
 
+<TournamentArea/>
         </div>
 
         <MatchSection/>
         <br></br>
+        <Section1 main={data.data} playersnum={data.playersnum} clansnum={data.clansnum} />
 
         <HomeRules video={video}/>
+        <VideoArea/>
+
         {data.owner_visable?<BrandArea data={brands}/>:null}
         
-
+<SocialArea/>
       </main>
 
 

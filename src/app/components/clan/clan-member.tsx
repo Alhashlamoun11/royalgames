@@ -2,11 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IProduct } from "@/types/product-type";
+import { useRouter } from "next/navigation";
 
 
 
 
 const ClanMember = ({ item }: any) => {
+  const router=useRouter()
   const handelUserLevel=(player_id:string,level:number)=>{
     const axios = require('axios');
 let data = JSON.stringify({
@@ -51,7 +53,7 @@ axios.request(config)
   
   axios.request(config)
   .then((response:any) => {
-    window.location.reload()
+    router.refresh()
     console.log(JSON.stringify(response.data));
   })
   .catch((error:any) => {
