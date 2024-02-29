@@ -88,7 +88,7 @@ export default function MyTeam() {
           return}
         const FormData = require('form-data');
         let formData = new FormData();
-        formData.append('name', 'clan name test');
+        formData.append('name', data.name);
         formData.append('description', data.description);
         formData.append('short_name', data.short_name);
         formData.append('owner_id', user._id);
