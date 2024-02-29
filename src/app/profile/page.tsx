@@ -108,7 +108,7 @@ axios.request(config)
     }
   
 
-    if(!auth()){
+    if(user==null){
       redirect('/')
 
     }else{
@@ -116,9 +116,6 @@ axios.request(config)
     }
 
   },[user])
-  if(user==null){
-    redirect('/')
-  }
 
   return user!=null?(
     <Wrapper>
