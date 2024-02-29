@@ -79,7 +79,13 @@ export default function MyTeam() {
       console.log(players)
           },[status])
     const handleSubmiteForm= (data:any)=>{
-        if (!image) return
+        if (!image){
+          Swal.fire({
+            title:"ERROR!",
+            text:"choose clan image please",
+            icon:'error'
+          })
+          return}
         const FormData = require('form-data');
         let formData = new FormData();
         formData.append('name', 'clan name test');
@@ -205,9 +211,9 @@ export default function MyTeam() {
         <div className="col-sm-6">
           <ErrorMsg msg={errors.image?.message as string} />
           <div className="input-grp">
-            {/* <input {...register("image")} name="image" id="image" 
+            <input {...register("image")} name="image" id="image" 
                     onChange={(e:any) => setImage(e.target!=null?e.target.files[0]:null)}
-            type="file"/> */}
+            type="file"/>
           </div>
         </div>
         <div className="col-sm-9">
