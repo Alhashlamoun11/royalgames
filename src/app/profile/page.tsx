@@ -11,14 +11,16 @@ import { auth } from "@/hooks/auth";
 import Swal from "sweetalert2";
 import AllInvites from "../components/invites/all-invites";
 import PlayerInfoArea from "../components/players/player-info-area";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
+import { get } from "local-storage";
+import BreadcrumbAreaTwo from "../components/breadcrumb/breadcrumb-area-2";
 
 // export const metadata: Metadata = {
 //   title: "Team Details Page",
 // };
 
 export default function TeamDetailsPage() {
-  const [user,setUser]= useState(Object)
+  const [user,setUser]= useState(get('user'))
   const [invites,setInvites]= useState([])
   const router=useRouter()
 
@@ -78,14 +80,9 @@ axios.request(config)
     });
       }
   useEffect(()=>{
-    getUserData(user,setUser)
-
-    if(!auth()){
-      router.push('/')
-
-    }else{
+    if(user==null||typeof user=="undefined"){
+      getUserData(user,setUser)
     }
-    // console.log(user)
   },[])
 
   useEffect(()=>{
@@ -112,7 +109,7 @@ axios.request(config)
   
 
     if(!auth()){
-      router.push('/')
+      redirect('/')
 
     }else{
       getInvites()
@@ -120,10 +117,10 @@ axios.request(config)
 
   },[user])
   if(user==null){
-    router.push('/')
+    redirect('/')
   }
 
-  return (
+  return user!=null?(
     <Wrapper>
       {/* header start */}
       <Header />
@@ -230,5 +227,28 @@ axios.request(config)
       <Footer />
       {/* footer end */}
     </Wrapper>
+  ):(
+    <Wrapper>
+    {/* header start */}
+    <Header />
+    {/* header end */}
+
+    {/* main area start */}
+    <main className="main--area">
+      {/* breadcrumb area start */}
+      <BreadcrumbAreaTwo
+        title={"LOADING..."}
+        subtitle={""}
+      />
+
+
+      {/*  */}
+    </main>
+    {/* main area end */}
+
+    {/* footer start */}
+    <Footer />
+    {/* footer end */}
+  </Wrapper>
   );
 }
