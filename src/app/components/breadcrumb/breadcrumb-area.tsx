@@ -40,7 +40,7 @@ const BreadcrumbArea = ({prevSuptitle="home",bg=default_bg.src,brd_img=default_b
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                         backgroundImage:`url(${background.src})`}} className="breadcrumb__img">
-                        <img width={300} height={200} src={brd_img.src} alt="img" style={{minWidth:'200px',minHeight:'200px',borderRadius:'100px',marginTop:'7px',marginLeft:'50px',height:'auto',width:'auto'}} />
+                        <img width={300} height={200} src={typeof brd_img=='string'?brd_img:brd_img.src} alt="img" style={{minWidth:'200px',minHeight:'200px',borderRadius:'100px',marginTop:'7px',marginLeft:'50px',height:'auto',width:'auto'}} />
                     </div>
                 </div>
             </div>
