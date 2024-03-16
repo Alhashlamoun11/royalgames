@@ -55,8 +55,8 @@ const SocialArea = () => {
         <div className="row justify-content-center">
             <div className="col-xl-6 col-lg-7 col-md-10">
                 <div className="section__title text-center mb-60">
-                    <TextAnimation title='connect with us'/>
-                    <h3 className="title">stay connected</h3>
+                    <TextAnimation title='تواصل معنا عبر'/>
+                    <h3 className="title">حساباتنا</h3>
                 </div>
             </div>
         </div>

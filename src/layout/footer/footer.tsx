@@ -37,13 +37,13 @@ const Footer = () => {
             </div>
             <div className="col-xl-2 col-lg-3 col-md-5 col-sm-6">
               <div className="footer-widget widget_nav_menu">
-                <h4 className="fw-title">quick link</h4>
+                <h4 className="fw-title">روابط سريعة</h4>
                 <ul className="list-wrap menu">
-                  <li><Link href="/cheat-app">OUR APP</Link></li>
-                  <li><Link href="/tutorials">TUTORIALS</Link></li>
-                  <li><Link href="/tornament">TOURNAMENT</Link></li>
-                  <li><Link href="/my-team">My TEAM</Link></li>
-                  <li><Link href="/profile">PROFILE</Link></li>
+                  <li><Link href="/cheat-app">برنامج الحماية</Link></li>
+                  <li><Link href="/tutorials">الشروحات</Link></li>
+                  <li><Link href="/tornament">المنافسات</Link></li>
+                  <li><Link href="/my-team">فريقي</Link></li>
+                  <li><Link href="/profile">الصفحة الشخصية</Link></li>
                 </ul>
               </div>
             </div>
@@ -51,12 +51,12 @@ const Footer = () => {
               <div className="footer-widget widget_nav_menu">
                 {/* <h4 className="fw-title">Supports</h4> */}
                 <ul className="list-wrap menu">
-                  <li><Link href="/players">Players</Link></li>
-                  <li><Link href="/streamers">Streamers</Link></li>
-                  <li><Link href="/clans">CLANS</Link></li>
-                  <li><Link href="black-list">BLACK LIST</Link></li>
-                  <li><Link href="#">ABOUT</Link></li>
-                  <li><Link href="#">HOME</Link></li>
+                  <li><Link href="/players">اللاعبين</Link></li>
+                  <li><Link href="/streamers">صناع المحتوى</Link></li>
+                  <li><Link href="/clans">الفرق</Link></li>
+                  <li><Link href="black-list">قائمة المحرومين</Link></li>
+                  <li><Link href="#">من نحن</Link></li>
+                  <li><Link href="#">الرئيسية</Link></li>
                 </ul>
               </div>
             </div>
@@ -68,14 +68,14 @@ const Footer = () => {
           <div className="row align-items-center">
             <div className="col-md-7">
               <div className="copyright__text">
-                <p>Copyright © {new Date().getFullYear()} - All Rights Reserved By <span>ROYAL GAMES</span></p>
+                <p>حقوق النشر © {new Date().getFullYear()} - جميع الحقوق محفوظة <span>ROYAL GAMES</span></p>
               </div>
             </div>
-            <div className="col-md-5">
+            {/* <div className="col-md-5">
               <div className="copyright__card text-center text-md-end">
                 <Image src={payment} alt="img" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import CardsArea from '../cards/members_area';
 import TeamInfoArea from './team-info-area';
 import { get, set } from 'local-storage';
 import { redirect, useRouter } from 'next/navigation';
+import { signout } from '@/hooks/auth';
 
 interface IFormInput {
     name: string;
@@ -97,7 +98,7 @@ const router=useRouter();
             .then((response: any) => {
                 if (response.data.success && response.data.data != null) {
                           set('user', JSON.stringify(response.data.data))
-                    
+                            signout()
                           router.push('/profile')
 
                 } else if (response.data.success) {
@@ -127,7 +128,7 @@ const router=useRouter();
             let config = {
                 method: 'get',
                 maxBodyLength: Infinity,
-                url: `${process.env.BACKEND_URL}/get_clan_logs/${user.clan_id._id}`,
+                url: `${process.env.BACKEND_URL}/get_clan_logs/${user&&user.clan_id&&user.clan_id._id}`,
                 headers: {}
             };
 
@@ -220,7 +221,7 @@ const router=useRouter();
                     <div className="row">
                         <div className="col-12">
                             <div className="product__desc-wrap">
-                                {user != null && (team.owner_id == user._id || (user.clan_id._id == team._id && user.role == 1)) ?
+                                {user != null && (team.owner_id == user._id || (user.clan_id&&user.clan_id._id == team._id && user.role == 1)) ?
                                     (<ul className="nav nav-tabs" id="descriptionTab" role="tablist">
                                         <li className="nav-item" role="presentation">
                                             <button className="nav-link active" id="editeInfo-tab" data-bs-toggle="tab" data-bs-target="#editeInfo" type="button" role="tab" aria-controls="editeInfo" aria-selected="true" tabIndex={-1}>Edit Info</button>
@@ -255,7 +256,7 @@ const router=useRouter();
                                                 <button onClick={handleLeavTeam} style={{ background: "#9b0303" }} className="nav-link" >Leave</button>
                                             </li>) : null}
                                     </ul>)}
-                                {user != null && (team.owner_id == user._id || (user.clan_id._id == team._id && user.role == 1)) ?
+                                {user != null && (team.owner_id == user._id || (user.clan_id &&user.clan_id._id == team._id && user.role == 1)) ?
                                     (<div className="tab-content" id="descriptionTabContent">
                                         <div className="tab-pane animation-none fade show active" id="editeInfo" role="tabpanel" aria-labelledby="editeInfo-tab">
                                             <div className="col-lg-6 col-md-10">
@@ -298,18 +299,18 @@ const router=useRouter();
                                             </div>
                                         </div>
                                         <div className="tab-pane animation-none fade" id="editeMembers" role="tabpanel" aria-labelledby="editeMembers-tab">
-                                            {players.length > 0 ? (<CardsArea players={players} id={team._id} />) : (<h5>No Data Found</h5>)}
+                                            {players.length > 0 ? (<CardsArea players={players} id={team._id} />) : (<h5>لا يوجد بيانات حاليا</h5>)}
 
                                         </div>
                                         <div className="tab-pane animation-none fade" id="challenges" role="tabpanel" aria-labelledby="challenges-tab">
-                                            {challenges.length > 0 ? (<UpcomingMatches id={team._id} challenges={challenges} />) : (<h5>No Data Found</h5>)}
+                                            {challenges.length > 0 ? (<UpcomingMatches id={team._id} challenges={challenges} />) : (<h5>لا يوجد بيانات حاليا</h5>)}
 
                                         </div>
 
                                         <div className="tab-pane animation-none fade" id="logs" role="tabpanel" aria-labelledby="logs-tab">
                                             {/* related products start */}
                                             <ul style={{ maxHeight: '300px', listStyleType: 'none', fontSize: '14px', overflowY: 'scroll' }}>
-                                                {logs.length > 0 ? logs.map((e: any, i) => (<li key={i}>{new Date(e.created_at).toISOString().split('T')[0]} {new Date(e.created_at).toISOString().split('T')[1]}:~$ {e.log}</li>)) : (<h5>No Data Found</h5>)}
+                                                {logs.length > 0 ? logs.map((e: any, i) => (<li key={i}>{new Date(e.created_at).toISOString().split('T')[0]} {new Date(e.created_at).toISOString().split('T')[1]}:~$ {e.log}</li>)) : (<h5>لا يوجد بيانات حاليا</h5>)}
                                                 {/* related products end */}
                                             </ul>
                                         </div>
@@ -319,12 +320,12 @@ const router=useRouter();
                                                 <p style={{ wordBreak: 'break-all' }}>{team.description}</p>
                                             </div>
                                             <div className="tab-pane animation-none fade" id="challenges" role="tabpanel" aria-labelledby="challenges-tab">
-                                                {challenges.length > 0 ? (<UpcomingMatches id={team._id} challenges={challenges} />) : (<h5>No Data Found</h5>)}
+                                                {challenges.length > 0 ? (<UpcomingMatches id={team._id} challenges={challenges} />) : (<h5>لا يوجد بيانات حاليا</h5>)}
 
                                             </div>
                                             <div className="tab-pane animation-none fade" id="mempers" role="tabpanel" aria-labelledby="mempers-tab">
                                                 {/* related products start */}
-                                                {players.length > 0 ? (<CardsArea players={players} id={team._id} />) : (<h5>No Data Found</h5>)}
+                                                {players.length > 0 ? (<CardsArea players={players} id={team._id} />) : (<h5>لا يوجد بيانات حاليا</h5>)}
                                                 {/* related products end */}
                                             </div>
                                         </div>

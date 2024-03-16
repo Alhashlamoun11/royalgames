@@ -88,7 +88,7 @@ const PLayerAreaItem = ({ data }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-lg-8 col-sm-6">
                                     <div className="shop__showing-result">
-                                        <p>Showing {from} - {to} of {players&&players.length} results</p>
+                                        <p>عرض {from} - {to} من {players&&players.length} النتائج</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import bg from "@/assets/img/bg/video_bg.jpg";
+import bg from "@/assets/img/bg/بنر.gif";
 import VideoPopup from "../common/video-popup";
 
 const VideoArea = () => {
@@ -16,12 +16,11 @@ const VideoArea = () => {
                   className="popup-video cursor-pointer"
                   onClick={() => setIsVideoOpen(true)}
                 >
-                  <i className="flaticon-play"></i>
                 </a>
                 <h2 className="title">
-                  JOIN THE <span>COMMUNITY</span>
+                  انضم ل <span>مجتمعنا</span>
                 </h2>
-                <p>Join our Discord community and choosec onsteur</p>
+                <p>انضم لمجتمعنا وابدأ المنافسة الان</p>
                 <a
                   href="https://discord.com/"
                   target="_blank"

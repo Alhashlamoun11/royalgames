@@ -114,15 +114,15 @@ useEffect(()=>{
                   </div>
                   <div style={{width:'320px'}}  className="tgmenu__action d-none d-md-block">
                     <ul className="list-wrap">
-                      <li className="search">
+                      {/* <li className="search">
                         <a onClick={() => handleOpenSearch('/assets/audio/click.wav')} className="cursor-pointer">
                           <i className="flaticon-search-1"></i>
                         </a>
-                      </li>
+                      </li> */}
                      {user==null?( <li className="header-btn">
                         <a onClick={(handleDiscordSignIn)} className={`${style_2?'tg-btn-3 tg-svg':'tg-border-btn'}`}>
                           {style_2 && <SvgIconCom icon={shape} id="svg-2" />}
-                          <i className="flaticon-edit"></i> ~sing in
+                          <i className="flaticon-edit"></i> ~تسجيل دخول
                         </a>
                       </li>): 
                                         <div className="tgmenu__navbar-wrap">
@@ -163,7 +163,7 @@ useEffect(()=>{
       </div>
 
       {/* <!-- header-search --> */}
-      <SearchPopup setIsSearchOpen={setIsSearchOpen} isSearchOpen={isSearchOpen} />
+      {/* <SearchPopup setIsSearchOpen={setIsSearchOpen} isSearchOpen={isSearchOpen} /> */}
       {/* <!-- header-search-end --> */}
 
       {/* off canvas start */}

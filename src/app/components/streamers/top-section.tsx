@@ -26,9 +26,9 @@ const TopSectionStreamers = () => {
                     <div className="row justify-content-between">
                         <div className="col-lg-6">
                             <div className="slider__content">
-                                <h6 className="sub-title wow fadeInUp" data-wow-delay=".2s">live gaming</h6>
+                                <h6 style={{color:"white"}} className="sub-title wow fadeInUp" data-wow-delay=".2s">live gaming</h6>
                                 <h2 className="title wow fadeInUp" data-wow-delay=".5s">Streamers</h2>
-                                <p className="wow fadeInUp" data-wow-delay=".8s">رحلتك في عالم الالعاب مع افضل صانعين محتوى موهوبين</p>
+                                <p className="wow fadeInUp" data-wow-delay=".8s">رحلتك في عالم الالعاب مع افضل صناع محتوى موهوبين</p>
                             </div>
                         </div>
                         <div className="col-xxl-6 col-xl-5 col-lg-6">

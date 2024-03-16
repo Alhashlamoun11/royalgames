@@ -95,7 +95,7 @@ src="https://www.youtube.com/embed/Tn6-PIqc4UM?autoplay=0&mute=0&controls=2">
                       </div> */}
                     </div>
                   </SwiperSlide>
-                )):<center><h4>No Data</h4></center>}
+                )):<center><h4>لا يوجد</h4></center>}
                 <div className="swiper-scrollbar"></div>
               </Swiper>
             </div>

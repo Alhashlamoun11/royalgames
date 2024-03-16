@@ -34,7 +34,7 @@ function NavBtn({id,img,isActive}:INavProps) {
         onClick={() => handleClickSound('/assets/audio/tab.mp3')}
       >
         <span className="img-shape"></span>
-        <Image src={img} alt="img" />
+        <img src={img} alt="img" />
       </button>
     </li>
   );
@@ -51,7 +51,7 @@ export default function BlackListPage() {
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-        <BreadcrumbAreaThree title="Black List" subtitle="Black List" />
+        <BreadcrumbAreaThree title="قائمة المحرومين" subtitle="" />
         {/* breadcrumb area end */}
 
 <BlackListArea2 />

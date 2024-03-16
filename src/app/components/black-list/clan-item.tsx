@@ -41,7 +41,7 @@ const ClanItem = ({ item }: { item: any }) => {
                     icon:'info'
                 })
             }} href="#" className="bid-btn">
-              Reason <i className="fas fa-long-arrow-alt-right"></i>
+              السبب <i className="fas fa-long-arrow-alt-right"></i>
             </Link>
           </div>
         </div>

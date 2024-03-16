@@ -54,7 +54,7 @@ export default function Clan({params}:{params: { id: string }}) {
         {/* header start */}
         <Header />
         <main className="main--area">
-        <BreadcrumbAreaThree title='Loading...' subtitle='Team' />
+        <BreadcrumbAreaThree title='...تحميل' subtitle='Team' />
 
         </main>
         <Footer />
@@ -69,7 +69,7 @@ export default function Clan({params}:{params: { id: string }}) {
             {/* main area start */}
             <main className="main--area">
                 {/* breadcrumb area start */}
-                <BreadcrumbAreaThree title={clan.name} subtitle='Team' />
+                <BreadcrumbAreaThree title={clan.name} subtitle='الفريق' />
                 {/* breadcrumb area end */}
 
                 {/* shop details area start */}

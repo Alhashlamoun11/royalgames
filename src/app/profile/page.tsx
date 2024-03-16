@@ -161,7 +161,7 @@ axios.request(config)
               <div className="tournament__list-item-wrapper">
                 {invites!=null?invites.map((item:any, i) => (
                   <AllInvites key={i} handleAnswer={handleAnswer} item={item} data={item.clan_id} index={i} />
-                )):(<h5>No Data Found</h5>)}
+                )):(<h5>لا يوجد بيانات حاليا</h5>)}
               </div>
             </div>
           </div>
@@ -234,7 +234,7 @@ axios.request(config)
     <main className="main--area">
       {/* breadcrumb area start */}
       <BreadcrumbAreaTwo
-        title={"LOADING..."}
+        title={"...تحميل"}
         subtitle={""}
       />
 

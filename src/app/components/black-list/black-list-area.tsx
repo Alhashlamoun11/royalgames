@@ -94,7 +94,7 @@ export default function BlackListArea2(){
               onClick={() =>{handleSetType(id);handleClickSound('/assets/audio/tab.mp3')}}
             >
               <span className="img-shape"></span>
-              <Image src={img} alt="img" />
+              <img src={img} alt="img" />
             </button>
           </li>
         );
@@ -104,7 +104,7 @@ export default function BlackListArea2(){
         <section className="about__area section-pt-130 section-pb-130">
         <div className="container">
         <div className="tab-content" id="myTabContent">
-        <center><h2><TextAnimation title="BlackList Clans"/></h2></center>
+        <center><h2><TextAnimation title="الفرق المحرومة"/></h2></center>
 
           <TabItemClan
             id="01"
@@ -115,7 +115,7 @@ export default function BlackListArea2(){
           />
                       <br></br><br></br>
 
-                  <center><h2><TextAnimation title="BlackList Players"/></h2></center>
+                  <center><h2><TextAnimation title="اللاعبين المحرومين"/></h2></center>
 
           <TabItemPlayer id="02"
                               img={about_bg_2} isActive={true} title="Axie Infinity" rate="60%" />

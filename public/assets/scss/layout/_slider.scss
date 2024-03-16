@@ -89,7 +89,7 @@
             font-size: 150px;
             font-family: var(--tg-berlin-font-family);
             line-height: 0.8;
-            text-shadow: -1px 5px 0px rgb(69 248 130 / 66%);
+            text-shadow: -1px 5px 0px rgb(209 120 13);
             @media #{$xl} {
                 font-size: 118px;
             }
@@ -101,11 +101,11 @@
             }
             @media #{$xs} {
                 font-size: 18vw;
-                text-shadow: -1px 3px 0px rgb(69 248 130 / 66%);
+                text-shadow: -1px 3px 0px rgb(209 120 13);
             }
             @media #{$sm} {
                 font-size: 17vw;
-                text-shadow: -1px 5px 0px rgb(69 248 130 / 66%);
+                text-shadow: -1px 5px 0px rgb(209 120 13);
             }
         }
         & p {

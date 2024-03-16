@@ -27,11 +27,11 @@ const PlayerInfoArea = ({ user }: any) => {
                             <PlayerAchevments iconWidth={50} data={user}/>
 
                             <div className="team__info-list">
-                                <ul style={{gap:'0'}} className="list-wrap">
+                                <ul className="list-wrap">
                                     <li>
                                         <div className="team__info-item">
                                             <div className="team__info-icon">
-                                                <Image src={team_img} alt="img" width={67} height={75} style={{ height: 'auto', width: 'auto' }} />
+                                                <Image src={team_img} alt="img" width={50} height={75} style={{ height: 'auto', width: 'auto' }} />
                                             </div>
                                             <div className="team__info-content">
                                                 <span className="sub">{user.role==1?"member":user.role==0?"owner":"co-owner"}</span>

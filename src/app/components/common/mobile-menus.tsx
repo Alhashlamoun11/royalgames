@@ -68,11 +68,11 @@ console.log(user)
         </React.Fragment>
       ))}
                                                {user.user!=null?(           <li>
-                                                    <a onClick={handleLogOut} href='#'>Logout</a>
+                                                    <a onClick={handleLogOut} href='#'>تسجيل خروج</a>
                                                     </li>):                       
                        <a onClick={(handleDiscordSignIn)} className={`${false?'tg-btn-3 tg-svg':'tg-border-btn'}`}>
                           {false && <SvgIconCom icon={shape} id="svg-2" />}
-                          <i className="flaticon-edit"></i> ~sing in
+                          <i className="flaticon-edit"></i> ~تسجيل دخول
                         </a>
 }
 

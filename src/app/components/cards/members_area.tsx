@@ -11,7 +11,6 @@ import pronze from '@/assets/img/icons/download (4).png';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import errorMessage from '@/hooks/messageError';
-import { AppRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 import { useRouter } from 'next/navigation';
 import { get } from 'local-storage';
 
@@ -153,7 +152,7 @@ const router =useRouter();
       <div style={{maxHeight:"350px",overflowY:"scroll", background: "#070a0c", position: 'absolute', zIndex: '3', padding: '20px' }}>
         <input onChange={e => { handleSearchMembers(e) }} style={{ border: '1.5px solid #45f882', borderRadius: '5px' }} placeholder='name' />
         <ul style={{ listStyleType: 'none', background: "#070a0c", padding: '5px', borderRadius: '5px' }} id="members">
-          {members.length > 0 ? members.map((item: any,i) => item._id!=user._id?(
+          {members.length > 0 ? members.map((item: any,i) => (user&&item._id!=user._id)?(
             <li key={i}>
               <Link href={'/profile/' + item._id}>
                 <img style={{ margin: '0 10px 0 0', borderRadius: '50px' }} width={'50px'} src={item.avatare} />{item.global_name}
@@ -169,7 +168,7 @@ const router =useRouter();
                   }}>Invite</button>
               </Link>
             </li>
-          ):null) : "No data found"}
+          ):null) : "لا يوجد بيانات حاليا"}
 
         </ul>
       </div>
@@ -286,7 +285,9 @@ const router =useRouter();
         <div className="trendingNft__title-wrap">
           <div className="row">
             <div className="col-md-6">
-              <button
+            {user && user.clan_id && id==user.clan_id._id?
+            <>
+            <button
                 onClick={(e) => setPopUpMenu(!popUpMenu)}
                 style={{
                   border: "1px solid black",
@@ -294,7 +295,7 @@ const router =useRouter();
                   borderRadius: '10px',
                   background: '#0f161b'
                 }} className="nav-link active left">Add Member</button>
-              {popUpMenu && handleAddMemberMenue()}
+              {popUpMenu && handleAddMemberMenue()}</>:<></>}
             </div>
 
             <div className="col-md-3">
@@ -319,18 +320,18 @@ const router =useRouter();
               <div className="trendingNft__item-top">
                 <div className="trendingNft__item-avatar">
                   <div className="image">
-                    <Link href={`/players/${item._id}`}>
-                      <Image style={{ height: '50px' }} src={item.role == 2 ? gold : item.role == 1 ? silver : pronze} alt="img" />
+                    <Link href={`/profile/${item._id}`}>
+                      <Image style={{ height: '50px' }} src={item._id==item.clan_id.owner_id?gold:item.role == 2 ? gold : item.role == 1 ? silver : pronze} alt="img" />
                     </Link>
                   </div>
                   <div className="info">
                     <h6 title={item.global_name} className="name">{item.global_name}</h6>
-                    <Link href={`/players/${item._id}`} className="userName">{item.role == 2 ? "Owner" : item.role == 1 ? "Co-Owner" : "Player"}</Link>
+                    <Link href={`/profile/${item._id}`} className="userName">{item._id==item.clan_id.owner_id?"Owner":item.role == 2 ? "Owner" : item.role == 1 ? "Co-Owner" : "Player"}</Link>
                   </div>
                 </div>
               </div>
               <div className="trendingNft__item-image">
-                <Link href={`/players/${item._id}`}>
+                <Link href={`/profile/${item._id}`}>
                   <img src={item.avatare} alt="img" style={{ width: '100%', maxHeight: '180px' }} />
                 </Link>
               </div>
@@ -344,7 +345,7 @@ overflow: 'hidden'
 }}>{item.activigion_name} </span></h6>
                 </div>
                 {/* <a onClick={()=> {setPlayerId(item._id); setPopUpEditeMenu(!popUpEditeMenu)}} className="bid-btn">Edite */}
-                {user._id!=item._id?(<select onChange={e=>handleEditeChange(e,item._id,this)} style={{fontSize:'16px',padding:"10px 10px"}} className="bid-btn">
+                {user&&user._id!=item._id?(<select onChange={e=>handleEditeChange(e,item._id,this)} style={{fontSize:'16px',padding:"10px 10px"}} className="bid-btn">
                 <option style={{color:'white',background:'#0f161b'}} selected disabled className='poupup_menue' value="Edite ->">Edite</option>
                 <option style={{color:'white',background:'#0f161b'}} className='poupup_menue' value="upgrade">Upgrade</option>
         <option style={{color:'white',background:'#0f161b'}} className='poupup_menue' value="downgrade">Downgrade</option>

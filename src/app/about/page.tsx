@@ -22,12 +22,12 @@ export default function AboutPage() {
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-        <BreadcrumbAreaTwo title="ABOUT US" subtitle="ABOUT US" />
+        <BreadcrumbAreaTwo title="من نحن" subtitle="" />
         {/* breadcrumb area end */}
 
         <AboutAreaTwo/>
 
-        <TournamentArea/>
+        {/* <TournamentArea/> */}
         {/* about area start */}
         {/* <AboutAreaThree/> */}
         {/* about area end */}

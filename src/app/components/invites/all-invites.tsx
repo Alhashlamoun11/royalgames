@@ -58,7 +58,7 @@ const AllInvites = ({ item, index,data,handleAnswer }: IProp) => {
           <span className="status">{item.owner&&item.owner.global_name}</span>
         </div>
         <div className="tournament__list-prize">
-          <h4 className="title">Join Request</h4>
+          <h4 className="title">طلب انضمام</h4>
           {/* <i className="fas fa-trophy"></i> */}
           {/* <Achievments data={data} iconWidth={20}/> */}
         </div>
@@ -69,7 +69,7 @@ const AllInvites = ({ item, index,data,handleAnswer }: IProp) => {
         </div> */}
         <div style={{display:"flex",flexDirection:'column',alignItems:'center'}} className="tournament__list-live">
           <a href="#" onClick={(e)=>handleAnswer(item._id,item.clan_id._id)}>
-            Answer
+            اجابة
           </a>
           <span suppressHydrationWarning={true}>{formatDateString(item.created_at)}</span>
 

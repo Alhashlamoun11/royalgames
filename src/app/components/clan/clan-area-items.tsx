@@ -88,7 +88,7 @@ const CLanAreaItems = ({ data }: any) => {
                             <div className="row align-items-center">
                                 <div className="col-lg-8 col-sm-6">
                                     <div className="shop__showing-result">
-                                        <p>Showing {from} - {to} of {clans.length} results</p>
+                                        <p>عرض {from} - {to} من {clans.length} النتائج</p>
                                     </div>
                                 </div>
                             </div>

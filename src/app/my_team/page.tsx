@@ -82,7 +82,7 @@ export default function MyTeam() {
         if (!image){
           Swal.fire({
             title:"ERROR!",
-            text:"choose clan image please",
+            text:"يرجى رفع صورة للفريق",
             icon:'error'
           })
           return}
@@ -124,7 +124,7 @@ export default function MyTeam() {
         {/* header start */}
         <Header style_2={true}/>
         <main className="main--area">
-        <BreadcrumbAreaThree title="Loading..." subtitle='Team' />
+        <BreadcrumbAreaThree title="...تحميل" subtitle='فريقي' />
         </main>
         </Wrapper>
     ):user.clan_id != null ? (
@@ -136,7 +136,7 @@ export default function MyTeam() {
             {/* main area start */}
             <main className="main--area">
                 {/* breadcrumb area start */}
-                <BreadcrumbAreaThree title={team.name} subtitle='Team' />
+                <BreadcrumbAreaThree title={team.name} subtitle='فريقي' />
                 {/* breadcrumb area end */}
 
                 {/* shop details area start */}
@@ -158,7 +158,7 @@ export default function MyTeam() {
         {/* main area start */}
         <main className="main--area">
             {/* breadcrumb area start */}
-            <BreadcrumbAreaThree title={team ? team.name : "Create Clan"} subtitle='Clan' />
+            <BreadcrumbAreaThree title={team ? team.name : "انشاء فريق"} subtitle='' />
             {/* breadcrumb area end */}
 
     <section className="contact-area">
@@ -167,7 +167,7 @@ export default function MyTeam() {
           <div className="col-lg-6 col-md-10">
             <div className="contact__content">
               <h2 className="overlay-title">
-                <span>join us</span>
+                <span>انضمام</span>
               </h2>
               <h2 className="title">CONTACT US AND FIND YOUR mykd</h2>
               <p>
@@ -192,20 +192,20 @@ export default function MyTeam() {
             <section className="shop-area shop-details-area">
                 <div className="container">
                     <center>
-                        <h1>You Didn't Joined Team Yet</h1>
+                        <h1>لم تنضم لفريق بعد</h1>
                     </center>
                     <form encType="multipart/form-data" onSubmit={handleSubmit(handleSubmiteForm)} id="contact-form">
       <div className="row">
         <div className="col-sm-6">
           <ErrorMsg msg={errors.name?.message as string} />
           <div className="input-grp">
-            <input {...register("name", { required: `Name is required!` })} name="name" id="name" type="text" placeholder="Team Name *" />
+            <input {...register("name", { required: `Name is required!` })} name="name" id="name" type="text" placeholder="اسم الفريق *" />
           </div>
         </div>
         <div className="col-sm-6">
           <ErrorMsg msg={errors.short_name?.message as string} />
           <div className="input-grp">
-            <input {...register("short_name")} name="short_name" id="short_name" type="text" placeholder="Team Short Description *" />
+            <input {...register("short_name")} name="short_name" id="short_name" type="text" placeholder="الاسم المصغر للفريق *" />
           </div>
         </div>
         <div className="col-sm-6">
@@ -219,12 +219,12 @@ export default function MyTeam() {
         <div className="col-sm-9">
           <ErrorMsg msg={errors.description?.message as string} />
           <div className="input-grp">
-            <textarea placeholder="Clan Description" {...register("description")} name="description" id="description"></textarea>
+            <textarea placeholder="وصف الفريق" {...register("description")} name="description" id="description"></textarea>
           </div>
         </div>
 
       </div>
-      <button type="submit" className="submit-btn">Submit Now</button>
+      <button type="submit" className="submit-btn">انشاء</button>
     </form>
 
                 </div>

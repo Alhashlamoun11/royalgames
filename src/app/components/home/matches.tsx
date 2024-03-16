@@ -62,7 +62,7 @@ function UpcomingMatchItem({
           <div className="team--info info-left">
             <span style={{fontSize:'14px'}} className="game-name">{game_name_1}</span>
             <h3 style={{fontSize:'16px',}} className="name">
-              <Link style={{color:style1}} href={`/clans/${id1}`}>{match_name}</Link>
+              <Link style={{color:style1}} href={`/clan/${id1}`}>{match_name}</Link>
             </h3>
           </div>
           <div className="upcoming-match__time">
@@ -71,7 +71,7 @@ function UpcomingMatchItem({
           <div className="team--info info-right">
             <span style={{fontSize:'14px'}} className="game-name">{game_name_2}</span>
             <h3 style={{fontSize:'16px'}} className="name">
-              <Link style={{color:style2}} href={`/clans/${id2}`}>{match_name_2}</Link>
+              <Link style={{color:style2}} href={`/clan/${id2}`}>{match_name_2}</Link>
             </h3>
           </div>
         </div>
@@ -173,7 +173,7 @@ const MatchSection = ({challenges,id}:any) => {
               delay=".2"
             />
 
-              )):<center><h1>No Data Found</h1></center>}
+              )):<center><h1>لا يوجد بيانات حاليا</h1></center>}
             </div>
           </div>
         </div>

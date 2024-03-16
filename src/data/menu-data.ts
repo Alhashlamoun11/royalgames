@@ -12,38 +12,38 @@ type IMenuDataType = {
 const menu_data:IMenuDataType[] = [
   {
     id:1,
-    title:'Home',
+    title:'الرئيسية',
     link:'/'
   },
   {
     id:2,
-    title:'TORNAMENT',
+    title:'المنافسات',
     link:'/tournament',
   },
   {
     id:3,
-    title:'PLAYERS',
+    title:'اللاعبين',
     link:'/players',
   },
   {
     id:5,
-    title:'Clans',
+    title:'الفرق',
     link:'/clans'
   },
   {
     id:5,
-    title:'Black List',
+    title:'قائمة الحرمان',
     link:'/black-list'
   },  
   {
     id:7,
-    title:'Other',
+    title:'أخرى',
     link:'#',
     sub_menu:[
-      {title:'ABOUT',link:'/about'},
-      {title:'Streamers',link:'/streamers'},
-      {title:'Our App',link:'/application'},
-      {title:'Tutorials',link:'/tutorials'}
+      {title:'من نحن',link:'/about'},
+      {title:'صناع المحتوى',link:'/streamers'},
+      {title:'برنامج الحماية',link:'/application'},
+      {title:'الشروحات',link:'/tutorials'}
     ]
 
   }

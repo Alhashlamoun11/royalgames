@@ -51,20 +51,27 @@ const AboutAreaTwo = () => {
                                  <h2 className="count">
                                     <CounterUp number={40} text="K" />
                                  </h2>
-                                 <p>Member</p>
+                                 <p>اللاعبين</p>
                               </div>
                               <div className="about__funFact-item">
                                  <h2 className="count">
-                                    <CounterUp number={12} text="K" />
+                                    <CounterUp number={12} text="" />
                                  </h2>
-                                 <p>Clans</p>
+                                 <p>الفرق</p>
                               </div>
                               <div className="about__funFact-item">
                                  <h2 className="count">
-                                    <CounterUp number={30} text="K" />
+                                    <CounterUp number={30} text="" />
                                  </h2>
-                                 <p>Challenges</p>
+                                 <p>التحديات</p>
                               </div>
+                              <div className="about__funFact-item">
+                                 <h2 className="count">
+                                    <CounterUp number={20} text="" />
+                                 </h2>
+                                 <p>المنافسات</p>
+                              </div>
+
                            </div>
                            {/* <div className="about__content-btns">
                               <Link href="/contact" className="tg-btn-3 tg-svg">

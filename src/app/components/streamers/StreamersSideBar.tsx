@@ -29,7 +29,7 @@ const StreamersSideBar = ({topplayers,serachFunction,filterByWiningFunction}:any
         </div> */}
     </div>
     <div style={{background:'#1d152a'}} className="shop__widget">
-        <h4 className="shop__widget-title">Top Streamers</h4>
+        <h4 className="shop__widget-title">افضل ستريمر</h4>
         <div style={{background:'#1d152a'}} className="shop__widget-inner">
             {topplayers.map((item:any) => (
             <div key={item._id} className="related__products-item">

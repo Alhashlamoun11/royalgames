@@ -76,10 +76,10 @@ const TournamentDetailsArea = () => {
                   <div className="blog-post-sidebar">
                      <aside className="blog-sidebar tournament__sidebar">
                         <div className="shop__widget">
-                           <h4 className="shop__widget-title">search</h4>
+                           <h4 className="shop__widget-title">بحث</h4>
                            <div className="shop__widget-inner">
                               <div className="shop__search">
-                                 <input type="text" placeholder="Search here" />
+                                 <input type="text" placeholder="ابحث هنا" />
                                  <button className="p-0 border-0"><i className="flaticon-search"></i></button>
                               </div>
                            </div>

@@ -21,7 +21,7 @@ export default function Clans() {
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-       <BreadcrumbAreaThree title="All Players" subtitle="All Players" />
+       <BreadcrumbAreaThree title="جميع اللاعبين" subtitle="" />
         {/* breadcrumb area end */}
 
         {/* shop area start */}

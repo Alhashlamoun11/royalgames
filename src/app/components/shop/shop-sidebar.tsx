@@ -15,16 +15,16 @@ const ShopSidebar = () => {
   return (
     <aside className="shop-sidebar">
     <div className="shop__widget">
-        <h4 className="shop__widget-title">search</h4>
+        <h4 className="shop__widget-title">بحث</h4>
         <div className="shop__widget-inner">
             <div className="shop__search">
-                <input type="text" placeholder="Search here"/>
+                <input type="text" placeholder="ابحث هنا"/>
                 <button className="p-0 border-0"><i className="flaticon-search"></i></button>
             </div>
         </div>
     </div>
     <div className="shop__widget">
-        <h4 className="shop__widget-title">filter by winning</h4>
+        <h4 className="shop__widget-title">تصفية حسب المتصدرين</h4>
         <div className="shop__widget-inner">
             <div className="shop__price-filter">
                 <div id="slider-range">

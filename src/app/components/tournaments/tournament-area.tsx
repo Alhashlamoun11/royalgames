@@ -41,8 +41,8 @@ axios.request(config)
             <div className="row justify-content-center">
                 <div className="col-xl-6 col-lg-7 col-md-10">
                     <div className="section__title text-center mb-60">
-                        <TextAnimation title='our tournament' />
-                        <h3 className="title">play to earn games</h3>
+                        <TextAnimation title='ROYAL GAMES TOURNAMENT' />
+                        <h3 className="title">المنافسات الحالية</h3>
                     </div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ import PlayerInfoArea from "@/app/components/players/player-info-area";
 
 
 export default function TeamDetailsPage({params}:{params: { id: string }}) {
-  const [user,setUser]= useState(Object)
+  const [user,setUser]= useState(null)
   const [invites,setInvites]= useState([])
 
   useEffect(()=>{
@@ -46,7 +46,7 @@ axios.request(config)
     getUserData()
   },[])
   
-  return user?(
+  return user!=null?(
     <Wrapper>
       {/* header start */}
       <Header />
@@ -81,7 +81,7 @@ axios.request(config)
     <Header />
     {/* header end */}
     <main className="main--area">
-    <BreadcrumbAreaThree title='Loading...' subtitle='Profile' />
+    <BreadcrumbAreaThree title='...تحميل' subtitle='الصفحة الشخصية' />
 
 </main>
     {/* main area start */}

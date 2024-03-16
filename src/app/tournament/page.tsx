@@ -4,7 +4,7 @@ import Header from "@/layout/header/header";
 import Footer from "@/layout/footer/footer";
 import BreadcrumbArea from "../components/breadcrumb/breadcrumb-area";
 import brd_bg from '@/assets/img/bg/breadcrumb_bg03.jpg';
-import brd_img from '@/assets/img/others/breadcrumb_img03.png';
+import brd_img from '@/assets/img/logo/p375.png';
 import TournamentArea from "../components/tournaments/tournament-area";
 import TournamentListArea from "../components/tournaments/tournament-list-area";
 
@@ -22,7 +22,7 @@ export default function TournamentPage() {
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-        <BreadcrumbArea title="TOURNAMENT" subtitle="TOURNAMENT" bg={brd_bg} brd_img={brd_img} />
+        <BreadcrumbArea title="المنافسات" subtitle="" bg={brd_bg} brd_img={brd_img} />
         {/* breadcrumb area end */}
 
         {/* tournament area start */}

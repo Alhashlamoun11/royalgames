@@ -52,15 +52,15 @@ const FooterTwo = () => {
                         <div className="footer-el-widget text-start text-md-center widget_nav_menu">
                             <div className="footer-el-logo mb-35">
                             <Link href="/">
-                                    <h5>Information </h5>
+                                    <h5>روابط سريعة </h5>
                                 </Link>
                             </div>
                             <div className="footer-el-menu">
                             <ul className="list-wrap">
-                                <li><Link href="tel:123">+971 333 222 557</Link></li>
-                                <li><Link href="mailto:info@exemple.com">info@exemple.com</Link></li>
-                                <li>Firestone building, Sharjah Ain <br/> Box 265, Dubai</li>
-                            </ul>
+                                    <li><Link href="/">الرئيسية</Link></li>
+                                    <li><Link href="/about">من نحن</Link></li>
+                                    <li><Link href="/tournament">المنافسات</Link></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -71,27 +71,20 @@ const FooterTwo = () => {
                                   <Image src={logo} alt="Mykd" style={{height:'auto'}}/>
                                 </Link>
                             </div>
-                            <div className="footer-el-menu">
-                                <ul className="list-wrap">
-                                    <li><Link href="/">Home</Link></li>
-                                    <li><Link href="/about">About Us</Link></li>
-                                    <li><Link href="/tournament">Tournament</Link></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div className="col-md-4 col-sm-5 order-0 order-md-2">
                         <div className="footer-el-widget text-start text-md-center widget_nav_menu">
                             <div className="footer-el-logo mb-35">
                                 <Link href="/">
-                                    <h5>Quick Links </h5>
+                                    <h5>روابط سريعة </h5>
                                 </Link>
                             </div>
                             <div className="footer-el-menu">
                                 <ul className="list-wrap">
-                                <li><Link href="/players">Players</Link></li>
-                                    <li><Link href="/clans">Clans</Link></li>
-                                    <li><Link href="/streamers">Streamers</Link></li>
+                                <li><Link href="/players">اللاعبين</Link></li>
+                                    <li><Link href="/clans">الفرق</Link></li>
+                                    <li><Link href="/streamers">صناع المحتوى</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -104,7 +97,7 @@ const FooterTwo = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="copyright__text text-center text-lg-start">
-                <p>Copyright © {new Date().getFullYear()} - All Rights Reserved By <span>Royal Games</span></p>
+                <p>حقوق النسخ © {new Date().getFullYear()} - جميع الحقوق محفوظة <span>Royal Games</span></p>
 
                         </div>
                     </div>

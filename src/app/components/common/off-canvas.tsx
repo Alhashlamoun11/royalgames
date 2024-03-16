@@ -29,34 +29,31 @@ const OffCanvas = ({user,isOffCanvasOpen,setIsOffCanvasOpen}:any) => {
               <div className="offCanvas__top">
                   <div className="offCanvas__logo logo">
                       <Link href="/">
-                        <Image src={logo} alt="Logo" width={177} height={40} />
+                        <img style={{borderRadius:"100px"}} src={logo} alt="Logo" width={177} height={40} />
                       </Link>
                   </div>
                   <div className="offCanvas__toggle" onClick={() => handleCloseOffCanvas('/assets/audio/remove.wav')}>
                       <i className="flaticon-swords-in-cross-arrangement"></i>
                   </div>
               </div>
-              <div className="offCanvas__content">
+              <div style={{marginTop:"10px"}} className="offCanvas__content">
                 <img src={user.avatare} width={'200px'}/>
                   <div className="offCanvas__contact">
                       <h4 className="small-title">{user.global_name}</h4>
                       <ul className="offCanvas__contact-list list-wrap">
-                          <li><Link href="tel:93332225557">{user.activigion_name}</Link></li>
-                          <li><Link href="mailto:info@webmail.com">{user.discorde_id}com</Link></li>
-                          <li><Link href="mailto:info@webmail.com">{user.userName}com</Link></li>
+                          <li>{user.activigion_name}</li>
+                          <li>{user.discorde_id}</li>
+                          <li>{user.userName}</li>
+                          <li><Link href="/profile">الصفحة الشخصية</Link></li>
+                          <li><Link href="/my_team">فريقي</Link></li>
                       </ul>
                   </div>
                   <div className="offCanvas__newsletter">
-                  <a onClick={handleLogOut} href='#'>Logout</a>
+                  <a onClick={handleLogOut} href='#'>تسجيل خروج</a>
                   </div>
-                  <ul className="offCanvas__social list-wrap">
-                    {social_data.map((s,i) => (
-                      <li key={i}><Link href={s.link} target='_blank'><i className={s.icon}></i></Link></li>
-                    ))}
-                  </ul>
               </div>
               <div className="offCanvas__copyright">
-                  <p>Copyright © {new Date().getFullYear()} - By <span>Royal Games</span></p>
+                  <p>حقوق النسخ © {new Date().getFullYear()} - من <span>Royal Games</span></p>
               </div>
           </div>
       </div>
@@ -100,7 +97,7 @@ const OffCanvas = ({user,isOffCanvasOpen,setIsOffCanvasOpen}:any) => {
                </ul>
            </div>
            <div className="offCanvas__copyright">
-               <p>Copyright © {new Date().getFullYear()} - By <span>Royal Games</span></p>
+               <p>حقوق النسخ © {new Date().getFullYear()} - من <span>Royal Games</span></p>
            </div>
        </div>
    </div>
