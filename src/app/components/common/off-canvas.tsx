@@ -29,7 +29,7 @@ const OffCanvas = ({user,isOffCanvasOpen,setIsOffCanvasOpen}:any) => {
               <div className="offCanvas__top">
                   <div className="offCanvas__logo logo">
                       <Link href="/">
-                        <img style={{borderRadius:"100px"}} src={logo} alt="Logo" width={177} height={40} />
+                        <Image src={logo.src} alt="Logo" width={177} height={40} />
                       </Link>
                   </div>
                   <div className="offCanvas__toggle" onClick={() => handleCloseOffCanvas('/assets/audio/remove.wav')}>
@@ -37,9 +37,9 @@ const OffCanvas = ({user,isOffCanvasOpen,setIsOffCanvasOpen}:any) => {
                   </div>
               </div>
               <div style={{marginTop:"10px"}} className="offCanvas__content">
-                <img src={user.avatare} width={'200px'}/>
+                <img style={{borderRadius:'100px'}} src={user.avatare} width={'200px'}/>
                   <div className="offCanvas__contact">
-                      <h4 className="small-title">{user.global_name}</h4>
+                      <h4  style={{marginTop:"10px"}}className="small-title">{user.global_name}</h4>
                       <ul className="offCanvas__contact-list list-wrap">
                           <li>{user.activigion_name}</li>
                           <li>{user.discorde_id}</li>
