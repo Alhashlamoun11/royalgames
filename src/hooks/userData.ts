@@ -1,7 +1,7 @@
 import axios from "axios";
 import { get, set } from "local-storage";
 
-export const getUserData=(user?:any,setUser?:any,param1?:string)=>{
+export const getUserData=(user?:any,setUser?:any,param1?:string,first?:any)=>{
 
     console.log(get('user'))
 
@@ -30,11 +30,17 @@ export const getUserData=(user?:any,setUser?:any,param1?:string)=>{
         console.log(response.data)
         if(user!=null)
           setUser((response.data))
+        if(first==null){
           window.location.href='/'
+
+        }
 
       }else{
 
-        window.location.href='/'
+        if(first==null){
+          window.location.href='/'
+
+        }
       }
       })
     .catch((error) => {

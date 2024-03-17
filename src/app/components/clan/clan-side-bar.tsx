@@ -43,7 +43,7 @@ const ClanSideBar = ({topClans,serachFunction,filterByWiningFunction}:any) => {
                 />
                 </div>
                 <div className="shop__price-slider-amount">
-                    <input type="submit" className="p-0 border-0" value="Filter"/>
+                    <input type="submit" className="p-0 border-0" value="تصفية"/>
                     {/* <input type="text" id="amount" name="price" placeholder="Add Your Price" /> */}
                     <span className=''>{priceValue[0]} - {priceValue[1]}</span>
                 </div>

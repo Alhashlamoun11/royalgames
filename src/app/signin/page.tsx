@@ -8,41 +8,60 @@ import ContactArea from "../components/contact/contact-area";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { notifySuccess } from "@/utils/toast";
-import { redirect, useRouter } from "next/navigation";
-import { getUserData } from "@/hooks/userData";
-import { auth, signin } from "@/hooks/auth";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import Swal from "sweetalert2";
+import { set } from "local-storage";
+import { getUserData } from "@/hooks/userData";
 
 // export const metadata: Metadata = {
 //   title: "Contact Page",
 // };
 
-export default function SignIn({ _id }:any) {
+export default function SignIn({params}:{params: { id: string }}) {
 
-  const [user,setUser]=useState(Object);
+  const [user,setUser]=useState(null);
 
   // Create a URLSearchParams object from the query string
   // const params = new URLSearchParams(document.location.search);
-  const param1 = _id; 
+  const searchParams = useSearchParams()
+
+  const _id = searchParams.get('_id'); 
 const router=useRouter();
 
   useEffect(()=>{
-    if(param1!=null){
-      getUserData(user,setUser,param1)
-      signin(param1)
+    if(_id!=null){
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${process.env.BACKEND_URL}/get_user/${_id}`,
+        headers: { 
+          'Accept': '*/*', 
+          'Content-Type': 'application/json'
+        }
+      };
+      
+      axios.request(config)
+      .then((response) => {
+  
+        console.log("from sign in");
+        console.log(JSON.stringify(response.data));
+          set('user',(response.data));
+          console.log(response.data)
+            setUser((response.data))
+        })
+        // signin(param1)
+        if(user&&user.activigion_name!=null&&user.activigion_name!=''){
+        console.log(user)
+        console.log("if")
 
-      if(user.activigion_name!='' && user.activigion_name!=null){
-        
           router.push('/')
     
-      }
 
     }else{
-      if(user.activigion_name!='' && user.activigion_name!=null){
-        router.push('/')
-          }
+      // router.push('/')
 
     }
+  }
   },[])
   function containsHashSymbol(inputString:string) {
     // Define the regular expression
@@ -63,7 +82,7 @@ const router=useRouter();
       return 
     }
 
-    console.log(Data);
+    // console.log(Data);
     // document.querySelector("#contact-form > button").disabled = true;
     // document.querySelector("#contact-form > button").style.background="#45f8827d"
     
@@ -71,9 +90,10 @@ let data = JSON.stringify({
   "activigion_name": Data.activigion_id,
   "sony_id": Data.sony_id,
   "xbox_id":Data.xbox_id,
-  "discorde_id": param1
+  "_id": _id
 });
-console.log("data "+data)
+console.log("data ")
+console.log(data)
 let config = {
   method: 'post',
   url: `${process.env.BACKEND_URL}/complete_create_user`,
@@ -89,13 +109,13 @@ console.log("config "+config)
 
 axios.request(config)
 .then((response) => {
-  if(response.data.data.acknowledged){
-    console.log("response.data.data.acknowledged "+response.data.data.acknowledged)
+    // console.log("response.data.data.acknowledged "+response.data.data.acknowledged)
+    console.log("_id")
+    console.log(_id)
 
   notifySuccess('Message sent successfully!');
-      router.push('/')
-
-  }
+      // router.push('/')
+getUserData(user,setUser,_id!)
 
   console.log(JSON.stringify(response.data));
 })

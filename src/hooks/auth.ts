@@ -2,7 +2,8 @@ import axios from "axios";
 import { get, remove, set } from "local-storage";
 import { redirect } from "next/navigation";
 
-const signin=(id:string)=>{
+const signin=(id:any)=>{
+  console.log(id)
     let config = {
         method: 'get',
         maxBodyLength: Infinity,

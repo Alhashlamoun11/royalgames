@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 
 const clientId = "1202268878965571604";
 const clientSecret = "lDlPJH3be6C3pfUuqvVCil5017p3J7Kc";
-const redirectUri = "https://abdallahfront-production.up.railway.app/api/auth/callback";
+const redirectUri = "http://localhost:3000/api/auth/callback";
 
 export default async function handler(req: any, res: NextApiResponse) {
   const code = req.searchParams.code;
@@ -63,7 +63,7 @@ export default async function handler(req: any, res: NextApiResponse) {
       // console.log(response.data);
       user=response.data;
       // Assuming your backend response has a "found" property
-        founded=(response.data.user.activigion_name!='' && response.data.user.activigion_name!=null)
+        founded=(response.data.user.activigion_name!=null && response.data.user.activigion_name!='')
         // console.log("response.data.activigion_name "+response.data.user.activigion_name!='')
         // console.log("response.data.activigion_name!=null  "+response.data.user.activigion_name!=null)
         // console.log("founded "+founded)

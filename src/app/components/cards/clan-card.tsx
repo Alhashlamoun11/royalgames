@@ -29,9 +29,9 @@ overflow: 'hidden'
             </div>
         </div>
     </div>
-    <div className="trendingNft__item-image">
+    <div style={{height:'130px'}} className="trendingNft__item-image">
     <Link href={`/clan/${item._id}`}>
-          <img src={item.image} alt="img" style={{width:'100%',height:'auto'}} />
+          <img src={item.image} alt="img" style={{width:'100%',height:'120px'}} />
         </Link>
     </div>
     <div style={{marginTop:'10px'}} className="trendingNft__item-bottom">
