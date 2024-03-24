@@ -11,7 +11,7 @@ const MobileMenus = (user) => {
   const router=useRouter()
   //openMobileMenu
   const clientId = "1202268878965571604";
-  const redirectUri = "https://abdallahfront-production.up.railway/api/auth/callback";
+  const redirectUri = "https://abdallahfront-production.up.railway.app/api/auth/callback";
   const handleDiscordSignIn = () => {
     const path = `https://discord.com/api/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=identify`;
     router.push(path)
