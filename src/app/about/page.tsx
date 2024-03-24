@@ -22,7 +22,7 @@ export default function AboutPage() {
       {/* main area start */}
       <main className="main--area">
         {/* breadcrumb area start */}
-        <BreadcrumbAreaTwo title="من نحن" subtitle="" />
+        <BreadcrumbAreaTwo title="من نحن" subtitle="الصفحة الرئيسية" />
         {/* breadcrumb area end */}
 
         <AboutAreaTwo/>

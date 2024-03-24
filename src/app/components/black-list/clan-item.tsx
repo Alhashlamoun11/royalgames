@@ -8,13 +8,13 @@ const ClanItem = ({ item }: { item: any }) => {
   return (
     <div className="nft-item__box">
       <div className="nft-item__thumb">
-        <Link href="/shop-details">
+        <Link href={`/clan/${item.clan_id}`}>
           <img style={{maxWidth:'180px',height:"190px"}} src={item.clan_id.image} alt="img" />
         </Link>
       </div>
       <div title={item.clan_id.name} className="nft-item__content">
         <h4 className="title">
-          <Link href="/shop-details">{item.clan_id.name}</Link>
+          <Link href={`/clan/${item.clan_id}`}>{item.clan_id.name}</Link>
         </h4>
         <div className="nft-item__avatar">
           <div className="avatar-img">
@@ -24,7 +24,7 @@ const ClanItem = ({ item }: { item: any }) => {
           </div>
           <div className="avatar-name">
             <h5 title={item.owner.global_name} className="name">
-              <Link href="/shop-details">{item.owner.global_name}</Link>
+              <Link href={`/profile/${item.owner._id}`}>{item.owner.global_name}</Link>
             </h5>
           </div>
         </div>

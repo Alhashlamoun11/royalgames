@@ -24,7 +24,7 @@ const BreadcrumbAreaTwo = ({title,subtitle}:IProp) => {
                 <nav aria-label="breadcrumb">
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                      <Link href="/">Home</Link>
+                      <Link href="/">الصفحة الرئيسية</Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">
                       {subtitle}
