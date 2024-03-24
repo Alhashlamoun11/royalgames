@@ -63,7 +63,7 @@ export default async function handler(req: any, res: NextApiResponse) {
       // console.log(response.data);
       user=response.data;
       // Assuming your backend response has a "found" property
-        founded=(response.data.user.activigion_name!=null && response.data.user.activigion_name!='')
+        founded=(response.data.user.activigion_name!=null && response.data.user.activigion_name!='')&& (response.data.user.sony_id!=null && response.data.user.sony_id!='')
         // console.log("response.data.activigion_name "+response.data.user.activigion_name!='')
         // console.log("response.data.activigion_name!=null  "+response.data.user.activigion_name!=null)
         // console.log("founded "+founded)
@@ -77,7 +77,8 @@ export default async function handler(req: any, res: NextApiResponse) {
   }finally{
     // console.log("finally")
     // console.log(user)
-    console.log(user.user._id)
+    console.log("user.user.activigion_name")
+    console.log(user.user.activigion_name)
 
     if(founded){
       set('user',user.user)
